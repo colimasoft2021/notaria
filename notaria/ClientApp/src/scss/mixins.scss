@@ -1,0 +1,51 @@
+﻿@import "./variables.scss";
+
+@mixin breakpoint($point) {
+    @if $point==SM {
+        @media (min-width: $BP_SM) {
+            @content;
+        }
+    }
+    @else if $point==SMI {
+        @media (min-width: $BP_SMI) {
+            @content;
+        }
+    }
+    @else if $point==MD {
+        @media (min-width: $BP_MD) {
+            @content;
+        }
+    }
+    @else if $point==LG {
+        @media (min-width: $BP_LG) {
+            @content;
+        }
+    }
+    @else if $point==ELG {
+        @media (min-width: $BP_ELG) {
+            @content;
+        }
+    }
+    @else if $point==SM_INVERSE {
+        @media (max-width: $BP_SM) {
+            @content;
+        }
+    }
+    @else if $point==MD_INVERSE {
+        @media (max-width: $BP_MD) {
+            @content;
+        }
+    }
+}
+
+@mixin contain {
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: $MAX_WIDTH;
+    padding: 0 20px;
+    width: 100%;
+
+    @include breakpoint(MD) {
+        padding: 0 35px;
+    }
+}

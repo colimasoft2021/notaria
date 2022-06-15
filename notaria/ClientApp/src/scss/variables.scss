@@ -1,0 +1,41 @@
+﻿// Font
+@font-face {
+    font-family: "Lato";
+    src: url(../fonts/Lato-Regular.ttf);
+}
+
+$BASE_FONT_SIZE: 18;
+
+// UI
+$WHITE: #fff;
+$BLACK: #000;
+$BLACK_OP23: #00000023;
+$BLUE: #cfe7ff;
+$PRIMARY_BLUE: #0091ca;
+$DARK_BLUE: #0e1b8d;
+$MEDIUM_BLUE: #475aff;
+$LIGHT_BLUE: #cacfff;
+$PRIMARY_GREEN: #3fb00a;
+$DARK_GREEN: #18884f;
+$PRIMARY_RED: #ca0000;
+$PRIMARY_GRAY: #e5e5e5;
+$SECONDARY_GRAY: #e7e2e2;
+$LIGHT_GRAY: #f9fafb;
+$MEDIUM_GRAY: #dee1ff;
+$DARK_GRAY: #999999;
+
+// Breakpoints
+$BP_SM: 1024px;
+$BP_SMI: 1080px;
+$BP_MD: 1280px;
+$BP_LG: 1440px;
+$BP_ELG: 1680px;
+
+// Measurements
+$MAX_WIDTH: 1280px;
+$MAX_WIDTH_HERO: 963px;
+$MAX_WIDTH_NARROW: 900px;
+$HEADER_HEIGHT: 120px;
+
+$BASE_FONT_SIZE: 16;
+

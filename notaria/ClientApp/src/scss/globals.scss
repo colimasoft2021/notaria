@@ -1,0 +1,85 @@
+﻿@import "./helpers.scss";
+
+html {
+	box-sizing: border-box;
+	font-size: #{$BASE_FONT_SIZE}px;
+	height: 100vh;
+	overflow-y: scroll;
+}
+
+html::-webkit-scrollbar {
+	display: none;
+}
+
+body {
+	background-color: $WHITE;
+	color: $BLACK;
+	font-family: "Lato", system-ui;
+	font-size: #{$BASE_FONT_SIZE}px;
+	font-weight: normal;
+	height: 100%;
+	line-height: 1;
+	margin: 0;
+	width: 100%;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+button {
+	appearance: none;
+	background: none;
+	border: none;
+	border-radius: 0;
+	color: inherit;
+	cursor: pointer;
+	font: inherit;
+	margin: 0;
+	overflow: visible;
+	padding: 0;
+	text-align: initial;
+	text-transform: none;
+	user-select: none;
+}
+
+a,
+button {
+	touch-action: manipulation;
+}
+
+abbr {
+	text-decoration: none;
+}
+
+img {
+	max-height: 100%;
+	max-width: 100%;
+}
+
+input,
+input[type="*"] {
+	appearance: none;
+	background: inherit;
+	border-radius: unset;
+	font: inherit;
+	margin: unset;
+	padding: unset;
+	width: 100%;
+}
+
+select {
+	cursor: pointer;
+	font-size: inherit;
+}
+
+svg:not(:root) {
+	overflow: hidden;
+}

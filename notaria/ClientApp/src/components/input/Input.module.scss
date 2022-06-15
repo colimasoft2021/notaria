@@ -1,0 +1,356 @@
+﻿@import "../../scss/helpers.scss";
+
+@mixin InputBase {
+    border-radius: 9px;
+    color: $BLACK;
+    font-family: "Lato";
+    font-style: normal;
+}
+
+.label {
+    font-family: "Lato";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 29px;
+    display: inline-block;
+    margin-bottom: 8px;
+
+    @include breakpoint(LG) {
+        font-size: 24px;
+    }
+}
+
+.inputLogin {
+    @include InputBase();
+    border: 2px solid $BLACK_OP23;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 26px;
+    padding: 10px 0 10px 26px;
+
+    &:focus {
+        border: 2px solid $MEDIUM_BLUE;
+        outline: none;
+    }
+
+    @include breakpoint(LG) {
+        font-size: 22px;
+        padding: 25px 0 26px 36px;
+    }
+}
+
+.checkboxContainer {
+    align-items: center;
+    display: flex;
+}
+
+.checkboxContainer label {
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    margin-left: 8px;
+}
+
+.labelWithBackground label {
+    background: $SECONDARY_GRAY;
+    border-radius: 5px;
+    padding: 20px 75px;
+}
+
+.checkboxContainer > .label {
+    margin-bottom: 0;
+}
+
+.inputCheckbox,
+.inputCheckboxBackground {
+    @include InputBase();
+    appearance: auto;
+    cursor: pointer;
+    height: 24px;
+    width: 24px;
+}
+
+.filterInput {
+    background: url(../../icons/magnifyingGlassIcon.png) 7px 10px no-repeat;
+    border: 2px solid $DARK_BLUE;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 22px;
+    height: 100%;
+    outline: none;
+    padding: 11.62px 8px 11.62px 37px;
+    width: 100%;
+
+    @include breakpoint(MD) {
+        background: url(../../icons/magnifyingGlassIcon.png) 15px 11px no-repeat;
+        font-size: 18px;
+        padding: 11.62px 8px 11.62px 62px;
+    }
+}
+
+.filterInput::placeholder {
+    color: $DARK_GRAY;
+}
+
+.noEscritura {
+    @include InputBase();
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: 400;
+    height: 64px;
+    line-height: 24px;
+    padding: 20px 20px;
+    width: 110px;
+
+    @include breakpoint(SMI) {
+        width: 120px;
+    }
+
+    @include breakpoint(MD) {
+        width: 140px;
+    }
+
+    @include breakpoint(LG) {
+        width: 158px;
+    }
+}
+
+.tipoActo {
+    @include InputBase();
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: 400;
+    height: 64px;
+    line-height: 24px;
+    padding: 20px 20px;
+    width: 180px;
+
+    @include breakpoint(SMI) {
+        width: 190px;
+    }
+
+    @include breakpoint(MD) {
+        width: 238px;
+    }
+
+    @include breakpoint(ELG) {
+        width: 260px;
+    }
+}
+
+.campoFecha {
+    @include InputBase();
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: 400;
+    height: 64px;
+    line-height: 24px;
+    padding: 15px 15px;
+    width: 220px;
+
+    @include breakpoint(SMI) {
+        padding: 18px 18px;
+        width: 235px;
+    }
+
+    @include breakpoint(MD) {
+        padding: 20px 30px;
+        width: 280px;
+    }
+
+    @include breakpoint(LG) {
+        width: 300px;
+    }
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: rgba(0, 0, 0, 0);
+    opacity: 1;
+    display: block;
+    background: url(../../icons/scheduleIcon.png) 5px 3px no-repeat;
+    width: 20px;
+    height: 20px;
+    border-width: thin;
+}
+
+input[type="date"]::-webkit-datetime-edit-month-field {
+    padding-right: 5px;
+
+    @include breakpoint(SMI) {
+        padding-right: 8px;
+    }
+
+    @include breakpoint(MD) {
+        padding-right: 25px;
+    }
+}
+
+input[type="date"]::-webkit-datetime-edit-day-field {
+    padding: 5px;
+
+    @include breakpoint(SMI) {
+        padding-right: 8px;
+    }
+
+    @include breakpoint(MD) {
+        padding: 13px;
+    }
+}
+
+input[type="date"]::-webkit-datetime-edit-year-field {
+    padding-left: 15px;
+}
+
+.partInput {
+    @include InputBase();
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 400;
+    height: 64px;
+    line-height: 22px;
+    padding: 20px 23px;
+    width: 220px;
+
+    @include breakpoint(SMI) {
+        width: 235px;
+    }
+
+    @include breakpoint(MD) {
+        width: 280px;
+    }
+
+    @include breakpoint(ELG) {
+        width: 320px;
+    }
+}
+
+.diasHabiles {
+    @include InputBase();
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 24px;
+    font-weight: 700;
+    height: 64px;
+    line-height: 29px;
+    padding: 20px 30px;
+    text-align: center;
+    width: 113px;
+
+    @include breakpoint(SMI) {
+        width: 120px;
+    }
+
+    @include breakpoint(MD) {
+        width: 150px;
+    }
+
+    @include breakpoint(ELG) {
+        width: 160px;
+    }
+}
+
+.responsable {
+    @include InputBase();
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 24px;
+    font-weight: 700;
+    height: 64px;
+    line-height: 29px;
+    padding: 20px 00px;
+    text-align: center;
+    width: 180px;
+
+    @include breakpoint(SMI) {
+        width: 192px;
+    }
+
+    @include breakpoint(MD) {
+        width: 225px;
+    }
+
+    @include breakpoint(ELG) {
+        width: 260px;
+    }
+}
+
+.inputOverLabel {
+    background: $WHITE;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    display: inline-block;
+    margin-bottom: 0;
+    margin-left: 10px;
+    margin-top: -12px;
+    position: absolute;
+    width: auto;
+
+    @include breakpoint(SMI) {
+        font-size: 18px;
+        margin-left: 15px;
+    }
+
+    @include breakpoint(MD) {
+        margin-left: 20px;
+    }
+}
+
+.searchUser {
+    @include InputBase();
+    background: url(../../icons/magnifyingGlassIcon4x.png) 25.5px 20px no-repeat;
+    background-size: 39px 38px;
+    border: 2px solid $DARK_BLUE;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 36px;
+    font-weight: 300;
+    height: 80px;
+    line-height: 43px;
+    outline: none;
+    padding: 13.62px 8px 11.62px 90px;
+    width: 506px;
+}
+
+.inputCreateUser {
+    @include InputBase();
+    border: 1px solid $BLACK;
+    border-radius: 0;
+    font-size: 18px;
+    font-weight: 300;
+    height: 64px;
+    line-height: 22px;
+    padding: 19px 40px;
+    width: 350px;
+
+    @include breakpoint(MD) {
+        width: 416px;
+    }
+}
+
+.inputWithIcon {
+    display: flex;
+    height: 64px;
+    width: 416px;
+    position: relative;
+}
+
+.iconInsideInput {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    right: 90px;
+    top: 17px;
+
+    @include breakpoint(MD) {
+        right: 33px;
+    }
+}

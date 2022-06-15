@@ -1,0 +1,192 @@
+﻿@import "../../scss/helpers.scss";
+
+@mixin buttonBase {
+  background-color: $MEDIUM_BLUE;
+  box-shadow: 0px 10px 22px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  color: $WHITE;
+  font-family: "Lato";
+  font-style: normal;
+  text-align: center;
+
+  &:hover {
+    background-color: $LIGHT_BLUE;
+  }
+}
+
+.loginButton {
+  @include buttonBase();
+  font-size: 25px;
+  font-weight: 700;
+  height: 65px;
+  line-height: 36px;
+  width: 100%;
+
+  @include breakpoint(LG) {
+    font-size: 30px;
+    height: 77px;
+  }
+}
+
+.openSideBarButton {
+  align-items: center;
+  background: $MEDIUM_GRAY;
+  border-radius: 9px;
+  display: flex;
+  height: 58px;
+  justify-content: center;
+  width: 56px;
+}
+
+.openSideBar {
+  transform: rotate(180deg);
+}
+
+.iconButton {
+  align-items: center;
+  display: flex;
+}
+
+.iconButtonWithoutText {
+  margin-left: 0;
+}
+
+.withoutIcon {
+  align-items: center;
+  display: flex;
+}
+
+.iconButton img {
+  height: 28px;
+  margin-left: 11.29px;
+  margin-right: 13.29px;
+  width: 28px;
+
+  @include breakpoint(LG) {
+    margin-right: 16.29px;
+  }
+}
+
+.iconButton p {
+  color: $BLACK;
+  font-family: "Lato";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+
+  @include breakpoint(MD) {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  @include breakpoint(LG) {
+    font-size: 28px;
+    line-height: 38px;
+  }
+
+  @include breakpoint(ELG) {
+    font-size: 28px;
+    line-height: 38px;
+  }
+}
+
+.topBarIcon {
+  height: 40px !important;
+  width: 40px !important;
+  @include breakpoint(MD) {
+    height: 45px !important;
+    width: 45px !important;
+  }
+  @include breakpoint(ELG) {
+    height: 52px !important;
+    width: 52px !important;
+  }
+}
+
+.iconDownload {
+  display: grid;
+  height: auto;
+  justify-content: center;
+  width: auto;
+}
+
+.iconDownload p {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 22px;
+  margin-bottom: 0;
+  margin-top: 6px;
+}
+
+.download {
+  height: 53.72px !important;
+  margin: auto;
+  width: 57.57px !important;
+}
+
+.buttonSearch {
+  @include buttonBase();
+  font-size: 22px;
+  font-weight: 700;
+  height: 60px;
+  line-height: 31px;
+  width: 255px;
+
+  @include breakpoint(SMI) {
+    font-size: 26px;
+  }
+  @include breakpoint(MD) {
+    height: 81px;
+  }
+}
+
+.buttonUpload {
+  @include buttonBase();
+  align-items: center;
+  background-color: $PRIMARY_BLUE;
+  display: flex;
+  height: 64px;
+  justify-content: space-between;
+  padding: 0 25px;
+  width: 351px;
+}
+
+.buttonUpload p {
+  color: $WHITE;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.iconRight {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.addUserButton {
+  @include buttonBase();
+  font-size: 26px;
+  font-weight: 600;
+  height: 83px;
+  line-height: 31px;
+  width: 407px;
+}
+
+.iconInside {
+  position: absolute;
+}
+
+.saveUser {
+  @include buttonBase();
+  font-size: 26px;
+  font-weight: 600;
+  height: 83px;
+  line-height: 31px;
+  width: 327px;
+
+
+}

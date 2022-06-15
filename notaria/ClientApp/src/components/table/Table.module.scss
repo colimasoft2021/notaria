@@ -1,0 +1,43 @@
+﻿@import "../../scss/helpers.scss";
+
+.tableContainer {
+    height: 100%;
+    padding-left: 43px;
+    padding-right: 50px;
+    width: 100%;
+}
+
+.noEscritura p {
+    color: $MEDIUM_BLUE;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.statusCompleted {
+    align-items: center;
+    border: 1px solid $PRIMARY_GREEN;
+    color: $DARK_GREEN;
+    display: flex;
+    font-size: 24px;
+    font-weight: 400;
+    height: 53px;
+    justify-content: center;
+    line-height: 29px;
+    width: 216px;
+}
+
+.statusVencido {
+    align-items: center;
+    border: 1px solid $PRIMARY_RED;
+    color: $PRIMARY_RED;
+    display: flex;
+    font-size: 24px;
+    font-weight: 400;
+    height: 53px;
+    justify-content: center;
+    line-height: 29px;
+    width: 216px;
+}

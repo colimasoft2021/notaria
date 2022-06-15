@@ -1,0 +1,44 @@
+﻿@import "../../scss/helpers.scss";
+
+.topBarContainer {
+    display: flex;
+    justify-content: right;
+    height: 100%;
+    width: 100%;
+}
+
+.optionsContainer {
+    align-items: center;
+    display: flex;
+}
+
+.optionContainer {
+    padding: 28px 74px 19.5px 0;
+}
+
+.optionContainer:first-child {
+    padding-right: 10px;
+
+    @include breakpoint(MD) {
+        padding-right: 20px;
+    }
+
+    @include breakpoint(LG) {
+        padding-right: 40px;
+    }
+}
+
+.iconContainer {
+    height: 40px;
+    width: 40px;
+
+    @include breakpoint(MD) {
+        height: 45px;
+        width: 45px;
+    }
+
+    @include breakpoint(ELG) {
+        height: 52px;
+        width: 52px;
+    }
+}

@@ -1,0 +1,135 @@
+﻿@import "../../scss/helpers.scss";
+
+.formContainer {
+    height: auto;
+    width: 100%;
+}
+
+.formHeader {
+    align-items: center;
+    background: $PRIMARY_GRAY;
+    display: flex;
+    height: 58.79px;
+    width: 100%;
+}
+
+.formHeader p {
+    color: $BLACK;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    margin: 0;
+    text-align: center;
+}
+
+.columOne {
+    width: 15%;
+}
+
+.columTwo {
+    width: 25%;
+}
+
+.columThree,
+.columFour {
+    width: 30%;
+}
+
+.inputsContainer {
+    margin-bottom: 32px;
+    margin-top: 11px;
+
+    @include breakpoint(LG) {
+        margin-bottom: 25px;
+        margin-top: 6px;
+    }
+}
+
+.rowOneContainer {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.rowOneInputOne {
+    height: 64px;
+    margin-bottom: 24px;
+    width: 15%;
+
+    @include breakpoint(ELG) {
+        margin-bottom: 34px;
+    }
+}
+
+.rowOneInputTwo {
+    align-items: center;
+    display: flex;
+    height: 64px;
+    justify-content: center;
+    width: 25%;
+}
+
+.rowOneInputThree {
+    align-items: center;
+    display: flex;
+    height: 64px;
+    justify-content: center;
+    width: 30%;
+}
+
+.rowOneInputFour {
+    align-items: center;
+    display: flex;
+    height: 64px;
+    justify-content: right;
+    width: 30%;
+}
+
+.rowTwoContainer {
+    height: auto;
+    display: flex;
+    height: 64px;
+    width: 100%;
+}
+
+.rowTwoInputOne {
+    /*   display: flex;
+  justify-content: center; */
+    width: 30%;
+}
+
+.rowTwoInputTwo {
+    /*   display: flex;
+  justify-content: center; */
+    width: 30%;
+}
+
+.rowTwoInputThree {
+    /*   display: flex;
+  justify-content: center; */
+    width: 15%;
+}
+
+.rowTwoInputFour {
+    display: flex;
+    justify-content: right;
+    width: 25%;
+}
+
+.buttonsContainer {
+    display: flex;
+}
+
+.botonBuscarContainer {
+    display: flex;
+    height: auto;
+    padding-left: 37px;
+    width: 50%;
+}
+
+.botonSubirContainer {
+    display: flex;
+    justify-content: right;
+    width: 50%;
+}

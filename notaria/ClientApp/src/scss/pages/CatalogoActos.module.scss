@@ -1,0 +1,71 @@
+﻿@import "../helpers.scss";
+
+.tramiteContainer {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.sideBarContainer {
+    height: 100vh;
+    width: 18.7%;
+}
+
+.sideBarClose {
+    width: 9%;
+}
+
+.contentContainer {
+    height: 100vh;
+    width: 81.3%;
+}
+
+.contentContainerClose {
+    width: 91%;
+}
+
+.topBarContentContainer {
+    height: 15.7%;
+    width: 100%;
+}
+
+.topBarContentContainerClose {
+    width: 100%;
+}
+
+.topBarContainer {
+    border-bottom: 2px solid $BLUE;
+    height: 100%;
+    width: 100%;
+}
+
+.titleContainer {
+    height: auto;
+    padding: 29.78px 50px 64.5px 43px;
+    width: 100%;
+}
+
+.formSearchContainer {
+    height: 100%;
+    margin-bottom: 71.5px;
+    padding: 0 50px 71.5px 43px;
+    width: 100%;
+}
+
+.formSearchContainer form {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.inputContainer,
+.buttonContainer {
+    height: auto;
+    width: 50%;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: right;
+    margin-right: 14px;
+}

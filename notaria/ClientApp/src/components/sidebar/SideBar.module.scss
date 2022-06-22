@@ -1,0 +1,169 @@
+﻿@import "../../scss/helpers.scss";
+
+.sideBarContainer {
+    background: $LIGHT_GRAY;
+    height: 100%;
+    width: 100%;
+}
+
+.sideBarClose {
+    width: 100%;
+}
+
+.contentContainer {
+    height: 100%;
+    width: 100%;
+}
+
+.imageContainer {
+    height: auto;
+    padding-bottom: 50px;
+    padding-top: 22.29px;
+    width: 100%;
+
+    @include breakpoint(MD) {
+        padding-bottom: 91px;
+    }
+}
+
+.imageContainerClose {
+    padding-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    @include breakpoint(MD) {
+        padding-bottom: 55px;
+        padding-left: 23px;
+        padding-right: 23px;
+    }
+}
+
+.iconContainer {
+    display: flex;
+    justify-content: right;
+    margin-right: 24px;
+
+    @include breakpoint(MD) {
+        margin-right: 29px;
+    }
+
+    @include breakpoint(LG) {
+        margin-right: 37px;
+    }
+
+    @include breakpoint(ELG) {
+        margin-right: 47px;
+    }
+}
+
+.iconContainerClose {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 38px;
+}
+
+.icon {
+    height: 23.37px;
+    width: 11.67px;
+
+    @include breakpoint(LG) {
+        height: 18.37px;
+        width: 11.67px;
+    }
+}
+
+.logoContainer {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    height: 150px;
+    width: 150px;
+
+    @include breakpoint(MD) {
+        height: 170px;
+        width: 170px;
+    }
+
+    @include breakpoint(LG) {
+        height: 200px;
+        width: 200px;
+    }
+
+    @include breakpoint(ELG) {
+        height: 230px;
+        width: 230px;
+    }
+}
+
+.smallLogo {
+    height: 55px;
+    width: 55px;
+
+    @include breakpoint(MD) {
+        height: 70px;
+        width: 70px;
+    }
+}
+
+.menuContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.optionContainer {
+    align-items: center;
+    border-radius: 6px;
+    display: flex;
+    margin-bottom: 40px;
+    height: auto;
+    padding: 8px 0;
+    width: 170px;
+
+    @include breakpoint(MD) {
+        margin-bottom: 20px;
+        width: 210px;
+    }
+
+    @include breakpoint(LG) {
+        margin-bottom: 20px;
+        width: 230px;
+    }
+}
+
+.optionActive {
+    background: $LIGHT_BLUE;
+}
+
+.optionContainer:last-child,
+.withoutText:last-child {
+    margin-bottom: 5px;
+}
+
+.optionsMenu {
+    display: grid;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+}
+
+.withoutText {
+    align-items: center;
+    border-radius: 9px;
+    display: flex;
+    height: 58px;
+    justify-content: center;
+    margin-bottom: 20px;
+    outline: none;
+    width: 56px;
+
+    @include breakpoint(MD) {
+        margin-bottom: 30px;
+        height: 60px;
+        width: 58px;
+    }
+}

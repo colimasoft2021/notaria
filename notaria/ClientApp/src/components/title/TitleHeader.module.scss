@@ -1,0 +1,108 @@
+﻿@import "../../scss/helpers.scss";
+
+.titleHeaderContainer {
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.iconTextContainer {
+    align-items: center;
+    display: flex;
+}
+
+.iconContainer {
+    align-items: baseline;
+    display: flex;
+    height: 100%;
+    margin-left: 15px;
+    margin-right: 18.33px;
+    padding-top: 20px;
+    width: 23.37px;
+}
+
+.withoutIcon {
+    padding-top: 10px;
+}
+
+.icon {
+    transform: rotate(180deg);
+}
+
+.titleContainer h1 {
+    border-bottom: 8px solid $MEDIUM_BLUE;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+    margin: 0;
+    padding-bottom: 16.5px;
+
+    @include breakpoint(MD) {
+        font-size: 40px;
+        line-height: 48px;
+        padding-bottom: 16.5px;
+    }
+}
+
+.downloadContainer {
+    display: grid;
+    justify-content: center;
+    height: auto;
+    width: auto;
+}
+
+.bannerContainer {
+    border-top: 16px solid $PRIMARY_BLUE;
+    height: 56px;
+    width: 100%;
+}
+
+.banner {
+    display: flex;
+    height: 56px;
+    width: 100%;
+}
+
+.containerBlue {
+    background-color: $PRIMARY_BLUE;
+    display: inline-block;
+    height: 100%;
+    line-height: 30px;
+    position: relative;
+    width: 45%;
+}
+
+.containerBlue:after {
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-top: 56px solid #0091ca;
+    content: "";
+    height: 0;
+    position: absolute;
+    right: -30px;
+    top: 0;
+    width: 0;
+    z-index: -1;
+}
+
+.containerBlue h1 {
+    color: $WHITE;
+    font-size: 31px;
+    font-weight: 700;
+    line-height: 43px;
+    margin: 0;
+    margin-left: 39px;
+
+    @include breakpoint(MD) {
+        font-size: 36px;
+    }
+}
+
+.containerWhite {
+    display: flex;
+    height: 100%;
+    justify-content: right;
+    margin-right: 31px;
+    width: 55%;
+}

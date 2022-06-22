@@ -1,8 +1,20 @@
+using Microsoft.EntityFrameworkCore;
+using notaria.DataContext;
+using notaria.Helpers;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddCors();
+builder.Services.AddScoped<JwtServices>();
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<NotariaContext>
+    (opt =>{
+        opt.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
+        opt.EnableSensitiveDataLogging();
+    });
+
 
 var app = builder.Build();
 
@@ -16,6 +28,8 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+
+app.UseCors();
 
 
 app.MapControllerRoute(

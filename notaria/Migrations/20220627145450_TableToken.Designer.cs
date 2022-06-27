@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using notaria.DataContext;
 
@@ -11,9 +12,10 @@ using notaria.DataContext;
 namespace notaria.Migrations
 {
     [DbContext(typeof(NotariaContext))]
-    partial class NotariaContextModelSnapshot : ModelSnapshot
+    [Migration("20220627145450_TableToken")]
+    partial class TableToken
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

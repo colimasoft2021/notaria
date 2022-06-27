@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using notaria.DataContext;
 using notaria.DataEntities;
 using notaria.Helpers;
@@ -27,8 +28,8 @@ namespace notaria.Controllers
         {
             try
             {
-                var jwt = Request.Cookies["jwt"];
-                var token = _jwtService.Verify(jwt);
+                //var jwt = Request.Cookies["jwt"];
+                //var token = _jwtService.Verify(jwt);
 
                 var users = _context.Users.Where(x => x.Activo ==  true).ToList();
                 return Ok(users);
@@ -108,7 +109,12 @@ namespace notaria.Controllers
                 user.correo = model.correo;
                 user.clave = hashClave(model.clave);
 
-                var exist = _context.Users.Where(x => x.correo == user.correo && x.clave == user.clave).FirstOrDefault();
+                var exist = _context.Users.Where(x => x.correo == user.correo && x.clave == user.clave && x.Activo == true).FirstOrDefault();
+
+                if (exist == null)
+                {
+                    return BadRequest("Credenciales incorrectas");
+                }
 
                 var jwt = _jwtService.Generate(exist.id);
 
@@ -147,8 +153,21 @@ namespace notaria.Controllers
                 var jwt = Request.Cookies["jwt"];
                 var token = _jwtService.Verify(jwt);
 
-                var exist = _context.Users.Where(x => x.correo == update.correo).FirstOrDefault();
+               var exist = _context.Users.Where(x => x.id == update.id).AsNoTracking().FirstOrDefault();
 
+               var correo = _context.Users.Where(x => x.correo == update.correo).AsNoTracking().FirstOrDefault();
+
+                if( correo.correo == update.correo)
+                {
+                    //message = new { status = "Eroror", message = "El correo ingresado ya ha sido registrado antes, confirmalo con el Administrador" };
+                    //ret = StatusCode(StatusCodes.Status400BadRequest, message);
+                    return BadRequest("El correo ingresado ya ha sido registrado antes, confirmalo con el Administrador");
+                }
+                string newClave = "";
+                if ( hashClave(update.clave) != exist.clave)
+                {
+                    newClave = hashClave(update.clave);
+                }
                 if (exist != null && exist.Activo == true)
                 {
                     var userData =  new UserEntity();
@@ -156,9 +175,10 @@ namespace notaria.Controllers
                     userData.nombre = update.nombre;
                     userData.apellido = update.apellido;
                     userData.correo = update.correo;
-                    userData.clave = hashClave(update.clave);
+                    userData.clave = newClave;
                     userData.modificar = update.modificar;
-                    
+                    userData.Activo = true;
+
                     userData.rolId = exist.rolId;
 
                     //_context.Update(user);

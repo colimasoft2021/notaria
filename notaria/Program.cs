@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddCors();
+builder.Services.AddSingleton<MailService>();
 builder.Services.AddScoped<JwtServices>();
 
 builder.Services.AddControllersWithViews();
@@ -29,7 +30,11 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
-app.UseCors();
+app.UseCors(x => x
+.AllowAnyMethod()
+.AllowAnyHeader()
+.SetIsOriginAllowed(origin => true) // allow any origin
+.AllowCredentials());
 
 
 app.MapControllerRoute(

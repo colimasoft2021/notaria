@@ -187,6 +187,37 @@
   height: 83px;
   line-height: 31px;
   width: 327px;
+}
 
+.backgroundBlue {
+    background: $PRIMARY_BLUE;
+    border-radius: 8px;
+    height: 45px;
+    padding: 5px;
+    width: 45px;
 
+    @include breakpoint(MD) {
+        height: 50px;
+        padding: 5px;
+        width: 50px;
+    }
+}
+
+.buttonAddActo {
+    @include buttonBase();
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 25px;
+    height: 75px;
+    padding: 25px 30px;
+    width: 300px;
+
+    @include breakpoint(MD) {
+        font-size: 26px;
+        font-weight: 600;
+        line-height: 31px;
+        height: 81px;
+        padding: 25px 53px;
+        width: 353px;
+    }
 }

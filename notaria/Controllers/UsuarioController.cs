@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using notaria.DataContext;
 using notaria.DataEntities;
 using notaria.Helpers;
@@ -27,15 +28,15 @@ namespace notaria.Controllers
         {
             try
             {
-                var jwt = Request.Cookies["jwt"];
-                var token = _jwtService.Verify(jwt);
+                //var jwt = Request.Cookies["jwt"];
+                //var token = _jwtService.Verify(jwt);
 
                 var users = _context.Users.Where(x => x.Activo ==  true).ToList();
                 return Ok(users);
             }
             catch (Exception ex)
             {
-                return Unauthorized();
+                return BadRequest(ex.Message);
             }
         }
 
@@ -47,8 +48,8 @@ namespace notaria.Controllers
             IActionResult ret = null;
             try
             {
-                var jwt = Request.Cookies["jwt"];
-                var token = _jwtService.Verify(jwt);
+                //var jwt = Request.Cookies["jwt"];
+                //var token = _jwtService.Verify(jwt);
 
                 var user = new UserEntity();
                 user.nombre = model.nombre;
@@ -90,7 +91,7 @@ namespace notaria.Controllers
             }
             catch (Exception ex)
             {
-                return Unauthorized();
+                return BadRequest(ex.Message);
             }
         }
 
@@ -108,7 +109,16 @@ namespace notaria.Controllers
                 user.correo = model.correo;
                 user.clave = hashClave(model.clave);
 
-                var exist = _context.Users.Where(x => x.correo == user.correo && x.clave == user.clave).FirstOrDefault();
+                var exist = _context.Users.Where(x => x.correo == user.correo && x.clave == user.clave && x.Activo == true).FirstOrDefault();
+
+                if (exist == null)
+                {
+                    message = new { status = "Error", message = "Usuario y/o contraseña no coinciden", data="" };
+                    ret = StatusCode(StatusCodes.Status500InternalServerError, message);
+
+                    return ret;
+                    //return BadRequest("Credenciales incorrectas");
+                }
 
                 var jwt = _jwtService.Generate(exist.id);
 
@@ -124,7 +134,7 @@ namespace notaria.Controllers
                 }
                 else
                 {
-                    message = new { status = "Error", message = "Usuario y/o contraseña no coinciden", data ="" };
+                    message = new { status = "Error", message = "Usuario y/o contraseña no coinciden", data = jwt };
                     ret = StatusCode(StatusCodes.Status500InternalServerError, message);
                 }
 
@@ -133,7 +143,7 @@ namespace notaria.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex);
+                return BadRequest(ex.Message);
             }
         }
 
@@ -144,10 +154,26 @@ namespace notaria.Controllers
             IActionResult ret = null;
             try
             {
-                var jwt = Request.Cookies["jwt"];
-                var token = _jwtService.Verify(jwt);
+                //var jwt = Request.Cookies["jwt"];
+                //var token = _jwtService.Verify(jwt);
 
                 var exist = _context.Users.Where(x => x.correo == update.correo).FirstOrDefault();
+
+                var correo = _context.Users.Where(x => x.correo == update.correo).AsNoTracking().FirstOrDefault();
+
+                if (correo.correo == update.correo)
+                {
+                    return BadRequest("El correo ingresado ya ha sido registrado antes, confirmalo con el Administrador");
+                }
+                string newClave = "";
+                if (hashClave(update.clave) != exist.clave)
+                {
+                    newClave = hashClave(update.clave);
+                }
+                else
+                {
+                    newClave = exist.clave;
+                }
 
                 if (exist != null && exist.Activo == true)
                 {
@@ -161,7 +187,6 @@ namespace notaria.Controllers
                     
                     userData.rolId = exist.rolId;
 
-                    //_context.Update(user);
                     _context.Update(userData);
                     _context.SaveChanges();
 
@@ -185,8 +210,8 @@ namespace notaria.Controllers
 
             try
             {
-                var jwt = Request.Cookies["jwt"];
-                var token = _jwtService.Verify(jwt);
+                //var jwt = Request.Cookies["jwt"];
+                //var token = _jwtService.Verify(jwt);
 
                 var exists = _context.Users.Find(id);
 

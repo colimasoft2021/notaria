@@ -10,9 +10,10 @@ export default function Button({
     openBar,
     download,
     iconRight,
+    type
 }) {
     return (
-        <button className={`${variant ? styles[variant] : ""}`} onClick={onClick}>
+        <button className={`${variant ? styles[variant] : ""}`} onClick={onClick} type={type}>
             {icon ? (
                 <div
                     className={

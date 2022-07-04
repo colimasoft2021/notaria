@@ -46,16 +46,13 @@
 }
 
 .formSearchContainer {
-    height: 100%;
-    margin-bottom: 71.5px;
-    padding: 0 50px 71.5px 43px;
-    width: 100%;
-}
-
-.formSearchContainer form {
     align-items: center;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    height: 100%;
+    margin-bottom: 71.5px;
+    padding: 0 50px 0 43px;
+    width: 100%;
 }
 
 .inputContainer,
@@ -66,8 +63,8 @@
 
 .buttonContainer {
     display: flex;
-    justify-content: space-between;
-    padding: 0 50px 64.5px 43px;
+    justify-content: end;
+    padding: 0;
     width: 100%;
 }
 
@@ -82,4 +79,13 @@
     @include breakpoint(MD) {
         margin: 0 27px;
     }
+}
+.buttonsActionsContainer {
+    align-items: center;
+    display: flex;
+    width: 100%;
+}
+
+.buttonsActionsContainer div:first-child {
+    margin-right: 12.27px;
 }

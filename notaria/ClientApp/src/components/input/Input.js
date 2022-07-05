@@ -16,9 +16,16 @@ export default function Input({
     onChange,
     name,
     id,
+    validate
 }) {
     const isIcon = Boolean(icon);
     const hasLabel = Boolean(label);
+    let error = '';
+
+    if (id === "Correo" || id === "Clave") {
+        error = `${id} inválido`
+    }
+
 
     if (isIcon && hasLabel) {
         return (
@@ -103,8 +110,10 @@ export default function Input({
                             type={type}
                             placeholder={placeholder}
                             onClick={onClick}
-                        />
+                            />
+                            {!validate ? (<h1 className={styles.error}>{error}</h1>) : (<></>)}
                     </div>
+                        
                 )}
             </>
         );

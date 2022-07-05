@@ -9,35 +9,53 @@ import styles from "./Login.module.scss";
 
 export default function Login(props) {
     const [user, setUser] = useState({ Correo: '', Clave: '' });
+    const [email, setEmail] = useState( {Correo: '', validate: true} );
+    const [password, setPassword] = useState( {Clave: '', validate: true} );
     let navigate = useNavigate();
-    const [sesion, setSesion] = useState();
   
     const URL = "https://localhost:7028/api/Usuario";
     const Login = (e) => {
         e.preventDefault();
-        const data = { Correo: user.Correo, Clave: user.Clave }
-        axios.post(URL, data)
-            .then((response) => {
-                //const serializedState = JSON.stringify(result.data);
-                //console.log(serializedState)
-                console.log(response)
-                //var a = localStorage.setItem('myData', serializedState);
-                //console.log("A: ", a)
-                //const user = result.data.userDetails;
-                /*if (response.status === 200)
-                    navigate('/inicio')
-                else {
-                    //setSesion(false);
-                    //console.log(sesion)
-                }*/
+        const data = { Correo: email.Correo, Clave: password.Clave }
+
+        //console.log(data)
+        if (email.Correo !== '' && password.Clave !== '') {
+            axios.post(URL, data)
+                .then((response) => {
+                    //const serializedState = JSON.stringify(result.data);
+                    //console.log(serializedState)
+                    console.log(response)
+                    //var a = localStorage.setItem('myData', serializedState);
+                    //console.log("A: ", a)
+                    //const user = result.data.userDetails;
+                    if (response.status === 200)
+                        navigate('/inicio')
             }).catch(function (error) {
-                console.log(error);
-            })
+                console.log(error.response);
+            }) 
+        } else {
+            if (email.Correo === '') {
+                setEmail({ Correo: '', validate: false });
+                
+            }
+            if (password.Clave === '') {
+                setPassword({ Clave: '', validate: false });
+            }
+        }
     }
 
-    const onChange = (e) => {
+    const onChangeCorreo = (e) => {
         e.persist();
-        setUser({ ...user, [e.target.name]: e.target.value });
+        if (document.getElementById("Correo") !== '') {
+            setEmail({ ...email, Correo: e.target.value, validate: true });
+        }
+    }
+
+    const onChangePassword = (e) => {
+        e.persist();
+        if (document.getElementById("Clave") !== '') {
+            setPassword({ ...password, Clave: e.target.value, validate: true });
+        }
     }
 
     return (
@@ -59,8 +77,9 @@ export default function Login(props) {
                                     type="email"
                                     placeholder="example@example.com"
                                     label="Correo"
-                                    onChange={onChange}
+                                    onChange={onChangeCorreo}
                                     variant="inputLogin"
+                                    validate={email.validate}
                                 />
                             </div>
                             <div className={styles.inputContainer}>
@@ -70,8 +89,9 @@ export default function Login(props) {
                                     type="password"
                                     placeholder="***********"
                                     label="Contraseña"
-                                    onChange={onChange}
+                                    onChange={onChangePassword}
                                     variant="inputLogin"
+                                    validate={password.validate}
                                 />
                             </div>
                             <div className={styles.forgetPassword}>

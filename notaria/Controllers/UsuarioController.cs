@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using notaria.DataContext;
@@ -24,13 +25,11 @@ namespace notaria.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult Get()
         {
             try
             {
-                //var jwt = Request.Cookies["jwt"];
-                //var token = _jwtService.Verify(jwt);
-
                 var users = _context.Users.Where(x => x.Activo ==  true).ToList();
                 return Ok(users);
             }
@@ -95,57 +94,6 @@ namespace notaria.Controllers
             }
         }
 
-        //Verifaca el corre y la contraseña esxistan
-        //[HttpPost("/api/Usuario/Login")]
-        [HttpPost()]
-        public IActionResult Login([FromBody] UserModel model)
-        {
-            var message = new { status = "", message = "", data="" };
-            IActionResult ret = null;
-            try
-            {
-                var user = new UserEntity();
-                user.id = model.id;
-                user.correo = model.correo;
-                user.clave = hashClave(model.clave);
-
-                var exist = _context.Users.Where(x => x.correo == user.correo && x.clave == user.clave && x.Activo == true).FirstOrDefault();
-
-                if (exist == null)
-                {
-                    message = new { status = "Error", message = "Usuario y/o contraseña no coinciden", data="" };
-                    ret = StatusCode(StatusCodes.Status500InternalServerError, message);
-
-                    return ret;
-                    //return BadRequest("Credenciales incorrectas");
-                }
-
-                var jwt = _jwtService.Generate(exist.id);
-
-                Response.Cookies.Append(key: "jwt", value: jwt, new CookieOptions
-                {
-                    HttpOnly = true
-                });
-
-                if (exist != null && exist.Activo == true)
-                {
-                    message = new { status = "Ok", message = "Usuario encontrado", data= jwt };
-                    ret = StatusCode(StatusCodes.Status200OK, message);
-                }
-                else
-                {
-                    message = new { status = "Error", message = "Usuario y/o contraseña no coinciden", data = jwt };
-                    ret = StatusCode(StatusCodes.Status500InternalServerError, message);
-                }
-
-                return ret;
-
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
 
         [HttpPut()]
         public IActionResult Modificar([FromBody] UserModel update)

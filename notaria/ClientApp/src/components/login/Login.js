@@ -11,8 +11,9 @@ export default function Login(props) {
     const [user, setUser] = useState({ Correo: '', Clave: '' });
     let navigate = useNavigate();
     const [sesion, setSesion] = useState();
+    const [loginToken, setLoginToken] = useState("");
   
-    const URL = "https://localhost:7028/api/Usuario";
+    const URL = "https://localhost:7028/api/Login/Login";
     const Login = (e) => {
         e.preventDefault();
         const data = { Correo: user.Correo, Clave: user.Clave }
@@ -30,6 +31,7 @@ export default function Login(props) {
                     //setSesion(false);
                     //console.log(sesion)
                 }*/
+                setLoginToken(response.data.data);
             }).catch(function (error) {
                 console.log(error);
             })
@@ -38,6 +40,21 @@ export default function Login(props) {
     const onChange = (e) => {
         e.persist();
         setUser({ ...user, [e.target.name]: e.target.value });
+    }
+
+    const getUsers = () => {
+        const URL = "https://localhost:7028/api/Usuario";
+        const config = {
+            headers: {
+                Authorization: "Bearer " + loginToken
+            }
+        }
+        axios.get(URL, config)
+            .then((response) => {
+                console.log('get users: ',response);
+            }).catch(function (error) {
+                console.log(error);
+            })
     }
 
     return (
@@ -90,6 +107,14 @@ export default function Login(props) {
                                     variant="loginButton"
                                     text="Iniciar sesión"
                                     type="submit"
+                                />
+                            </div>
+                            <div className={styles.buttonContainer}>
+                                <Button
+                                    variant="loginButton"
+                                    text="Obtener usuarios"
+                                    type="button"
+                                    onClick={getUsers}
                                 />
                             </div>
                         </form>

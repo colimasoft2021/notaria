@@ -1,4 +1,6 @@
 ﻿using Microsoft.IdentityModel.Tokens;
+using notaria.DataEntities;
+using notaria.Models;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -7,47 +9,34 @@ namespace notaria.Helpers
 {
     public class JwtServices
     {
-        //private string secureKey = "secure key";
-        private string secureKey = "this is a very secure key";
-        private string Issuer = "https://localhost:2255";
-        private string Audience = "https://localhost:4460";
+        IConfiguration configuration;
 
-        // Crea el jwt
-        public string Generate(int id)
+        public JwtServices(IConfiguration configuration)
         {
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(secureKey);
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new[] { new Claim("id", id.ToString()) }),
-                Expires = DateTime.UtcNow.AddDays(2),
-                Issuer = Issuer,
-                Audience = Audience,
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-            };
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            return tokenHandler.WriteToken(token);
+            this.configuration = configuration;
         }
-
-        //valida el jwt que no expire
-        public JwtSecurityToken Verify(string jwt)
+        public string Generate(UserEntity user)
         {
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(secureKey);
-            tokenHandler.ValidateToken(jwt, new TokenValidationParameters
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(this.configuration["Jwt:Key"]));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+            var claims = new[]
             {
-                ValidateIssuerSigningKey = true,
-                IssuerSigningKey = new SymmetricSecurityKey(key),
-                ValidateIssuer = false,
-                ValidateAudience = false,
-                // set clockskew to zero so tokens expire exactly at token expiration time (instead of 5 minutes later)
-                ClockSkew = TimeSpan.Zero
-            }, out SecurityToken validatedToken);
+                    new Claim(ClaimTypes.NameIdentifier, user.nombre+" "+user.apellido),
+                    new Claim(ClaimTypes.Email, user.correo),
+                    new Claim(ClaimTypes.GivenName, user.apellido),
+                    new Claim(ClaimTypes.Surname, user.nombre),
+                    new Claim(ClaimTypes.Role, "Admin")
+                };
 
-            var jwtToken = (JwtSecurityToken)validatedToken;
-            var accountId = jwtToken.Claims.First(x => x.Type == "id").Value;
+            var token = new JwtSecurityToken(this.configuration["Jwt:Issuer"],
+              this.configuration["Jwt:Audience"],
+              claims,
+              expires: DateTime.Now.AddMinutes(15),
+              signingCredentials: credentials);
 
-            return jwtToken;
+            var tokenReturn = new JwtSecurityTokenHandler().WriteToken(token);
+            return tokenReturn;
         }
     }
 }

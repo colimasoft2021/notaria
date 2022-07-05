@@ -4,12 +4,10 @@ import DataTable, { createTheme } from "react-data-table-component";
 import styles from "./Table.module.scss";
 import variable from "../../scss/helpers.scss";
 
-const Table = () => {
-    //1 - Configurar los hooks
-    const [users, setUsers] = useState([]);
+const Table = ({ data, columns, customStyles }) => {
+    //const [users, setUsers] = useState([]);
 
-    //2 - Función para mostrar los datos con fetch
-    const URL = "https://gorest.co.in/public/v2/users";
+    /*const URL = "https://gorest.co.in/public/v2/users";
     const showData = async () => {
         const response = await fetch(URL);
         const data = await response.json();
@@ -20,9 +18,10 @@ const Table = () => {
         showData();
     }, []);
 
-    //3 - Configuramos las columns para Datatable
+    console.log(users)
     const columns = [
-        {
+        //nombre del Encargado, Correo, Acciones
+       {
             name: "ID",
             button: true,
             cell: (row) => (
@@ -57,10 +56,12 @@ const Table = () => {
                 </div>
             ),
         },
-    ];
+    ];*/
 
+    //console.log(data)
+    //console.log(columns)
     //Personalizar temas
-    const customStyles = {
+    /*const customStyles = {
         rows: {
             style: {
                 background: "#DCDCDC",
@@ -94,15 +95,26 @@ const Table = () => {
             },
         },
     };
+    */
+
+    const paginacionOpciones = {
+        rowsPerPageText: 'Filas por Página',
+        rangeSeparatorText: 'de',
+        selectAllRowsItem: true,
+        selectAllRowsItemText: 'Todos'
+    }
 
     //4 - Mostrar la data en Datatable
     return (
         <div className={styles.tableContainer}>
             <DataTable
                 columns={columns}
-                data={users}
-                pagination
                 customStyles={customStyles}
+                data={data}
+                pagination
+                paginationComponentOptions={paginacionOpciones}
+                fixedHeader
+                fixedHeaderScrollHeight="600px"
             />
         </div>
     );

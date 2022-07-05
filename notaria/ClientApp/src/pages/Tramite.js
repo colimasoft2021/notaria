@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 import SideBar from "../components/sidebar/SideBar";
 import TopBar from "../components/topbar/TopBar";
 import Table from "../components/table/Table";
@@ -9,50 +10,47 @@ import excelIcon from "../icons/excelIcon.png";
 import styles from "../scss/pages/Tramite.module.scss";
 
 export default function Tramite() {
-  const [openBar, setOpenBar] = useState("");
+    const state = useSelector((state) => state);
 
-  const handleGetStateBar = (openBar) => {
-    setOpenBar(openBar);
-  };
-  return (
-    <div className={styles.tramiteContainer}>
-      <div
-        className={
-          !openBar
-            ? styles.sideBarContainer
-            : `${styles.sideBarContainer} ${styles.sideBarClose}`
-        }
-      >
-        <SideBar handleStateBar={handleGetStateBar} />
-      </div>
-      <div
-        className={
-          !openBar
-            ? styles.contentContainer
-            : `${styles.contentContainer} ${styles.contentContainerClose}`
-        }
-      >
-        <div
-          className={
-            !openBar
-              ? styles.topBarContentContainer
-              : `${styles.topBarContentContainer} ${styles.topBarContentContainerClose}`
-          }
-        >
-          <div className={styles.topBarContainer}>
-            <TopBar />
-          </div>
-          <div className={styles.formSearchContainer}>
-            <FormSearch />
-          </div>
-          <div className={styles.titleContainer}>
-            <TitleHeader text="COMPRA-VENTA" banner icon={excelIcon} />
-          </div>
-          <div className={styles.tableContentContainer}>
-            <Table />
-          </div>
+    return (
+        <div className={styles.tramiteContainer}>
+            <div
+                className={
+                    state.stateMenu
+                        ? styles.sideBarContainer
+                        : `${styles.sideBarContainer} ${styles.sideBarClose}`
+                }
+            >
+                <SideBar />
+            </div>
+            <div
+                className={
+                    state.stateMenu
+                        ? styles.contentContainer
+                        : `${styles.contentContainer} ${styles.contentContainerClose}`
+                }
+            >
+                <div
+                    className={
+                        state.stateMenu
+                            ? styles.topBarContentContainer
+                            : `${styles.topBarContentContainer} ${styles.topBarContentContainerClose}`
+                    }
+                >
+                    <div className={styles.topBarContainer}>
+                        <TopBar />
+                    </div>
+                    <div className={styles.formSearchContainer}>
+                        <FormSearch />
+                    </div>
+                    <div className={styles.titleContainer}>
+                        <TitleHeader text="COMPRA-VENTA" banner icon={excelIcon} />
+                    </div>
+                    <div className={styles.tableContentContainer}>
+                        <Table />
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 }

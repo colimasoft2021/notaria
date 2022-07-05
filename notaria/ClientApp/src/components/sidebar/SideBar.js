@@ -1,5 +1,7 @@
 ﻿import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux/es/exports";
+import { open, close } from "../../actions/menuActions";
 import styles from "./SideBar.module.scss";
 import Button from "../button/Button";
 import Logo from "../../images/logo.png";
@@ -13,24 +15,14 @@ import userIconSquare from "../../icons/userIconSquare.png";
 import arrowBlue from "../../icons/arrowBlueIcon.png";
 
 export default function SideBar({ handleStateBar }) {
-    const [openBar, setOpenBar] = useState(true);
-
-    const handleOpenBar = () => {
-        setOpenBar(false);
-        handleStateBar(openBar);
-    };
-
-    const handleCloseBar = () => {
-        setOpenBar(true);
-        handleStateBar(openBar);
-    };
-
+    const state = useSelector((state) => state);
+    const dispatch = useDispatch();
     const url = useLocation();
 
     return (
         <div
             className={
-                openBar
+                state.stateMenu
                     ? styles.sideBarContainer
                     : `${styles.sideBarContainer} ${styles.sideBarClose}`
             }
@@ -38,30 +30,30 @@ export default function SideBar({ handleStateBar }) {
             <div className={styles.contentContainer}>
                 <div
                     className={
-                        openBar
+                        state.stateMenu
                             ? styles.imageContainer
                             : `${styles.imageContainer} ${styles.imageContainerClose}`
                     }
                 >
-                    {openBar ? (
+                    {state.stateMenu ? (
                         <div className={styles.iconContainer}>
-                            <Button icon={arrowBlue} onClick={handleOpenBar} />
+                            <Button icon={arrowBlue} onClick={() => dispatch(close())} />
                         </div>
                     ) : (
                         <></>
                     )}
                     <div className={styles.logoContainer}>
                         <img
-                            className={openBar ? styles.logo : styles.smallLogo}
+                            className={state.stateMenu ? styles.logo : styles.smallLogo}
                             src={Logo}
                             alt="Logo"
                         />
                     </div>
-                    {!openBar ? (
+                    {!state.stateMenu ? (
                         <div className={styles.iconContainerClose}>
                             <Button
                                 icon={arrowBlue}
-                                onClick={handleCloseBar}
+                                onClick={() => dispatch(open())}
                                 variantIcon="openSideBar"
                                 variant="openSideBarButton"
                             />
@@ -74,26 +66,26 @@ export default function SideBar({ handleStateBar }) {
                     <div className={styles.optionsMenu}>
                         <div
                             className={
-                                openBar && url.pathname === "/inicio"
+                                state.stateMenu && url.pathname === "/inicio"
                                     ? `${styles.optionContainer} ${styles.optionActive}`
-                                    : openBar && url.pathname !== "/inicio"
+                                    : state.stateMenu && url.pathname !== "/inicio"
                                         ? styles.optionContainer
-                                        : !openBar && url.pathname === "/inicio"
+                                        : !state.stateMenu && url.pathname === "/inicio"
                                             ? `${styles.withoutText} ${styles.optionActive}`
                                             : styles.withoutText
                             }
                         >
                             <Link to="/inicio">
-                                <Button icon={houseIcon} text="Inicio" openBar={openBar} />
+                                <Button icon={houseIcon} text="Inicio" openBar={state.stateMenu} />
                             </Link>
                         </div>
                         <div
                             className={
-                                openBar && url.pathname === "/tramite"
+                                state.stateMenu && url.pathname === "/tramite"
                                     ? `${styles.optionContainer} ${styles.optionActive}`
-                                    : openBar && url.pathname !== "/tramite"
+                                    : state.stateMenu && url.pathname !== "/tramite"
                                         ? styles.optionContainer
-                                        : !openBar && url.pathname === "/tramite"
+                                        : !state.stateMenu && url.pathname === "/tramite"
                                             ? `${styles.withoutText} ${styles.optionActive}`
                                             : styles.withoutText
                             }
@@ -102,17 +94,17 @@ export default function SideBar({ handleStateBar }) {
                                 <Button
                                     icon={fileIconBlue}
                                     text="Iniciar nuevo trámites"
-                                    openBar={openBar}
+                                    openBar={state.stateMenu}
                                 />
                             </Link>
                         </div>
                         <div
                             className={
-                                openBar && url.pathname === "/seguimiento-tramites"
+                                state.stateMenu && url.pathname === "/seguimiento-tramites"
                                     ? `${styles.optionContainer} ${styles.optionActive}`
-                                    : openBar && url.pathname !== "/seguimiento-tramites"
+                                    : state.stateMenu && url.pathname !== "/seguimiento-tramites"
                                         ? styles.optionContainer
-                                        : !openBar && url.pathname === "/seguimiento-tramites"
+                                        : !state.stateMenu && url.pathname === "/seguimiento-tramites"
                                             ? `${styles.withoutText} ${styles.optionActive}`
                                             : styles.withoutText
                             }
@@ -121,32 +113,32 @@ export default function SideBar({ handleStateBar }) {
                                 <Button
                                     icon={searchIcon}
                                     text="Seguimiento Trámites"
-                                    openBar={openBar}
+                                    openBar={state.stateMenu}
                                 />
                             </Link>
                         </div>
                         <div
                             className={
-                                openBar && url.pathname === "/catalogo-responsable"
+                                state.stateMenu && url.pathname === "/catalogo-responsable"
                                     ? `${styles.optionContainer} ${styles.optionActive}`
-                                    : openBar && url.pathname !== "/catalogo-responsable"
+                                    : state.stateMenu && url.pathname !== "/catalogo-responsable"
                                         ? styles.optionContainer
-                                        : !openBar && url.pathname === "/catalogo-responsable"
+                                        : !state.stateMenu && url.pathname === "/catalogo-responsable"
                                             ? `${styles.withoutText} ${styles.optionActive}`
                                             : styles.withoutText
                             }
                         >
                             <Link to="/catalogo-responsable">
-                                <Button icon={listIcon} text="Catálogos" openBar={openBar} />
+                                <Button icon={listIcon} text="Catálogos" openBar={state.stateMenu} />
                             </Link>
                         </div>
                         <div
                             className={
-                                openBar && url.pathname === "/catalogo-actos"
+                                state.stateMenu && url.pathname === "/catalogo-actos"
                                     ? `${styles.optionContainer} ${styles.optionActive}`
-                                    : openBar && url.pathname !== "/catalogo-actos"
+                                    : state.stateMenu && url.pathname !== "/catalogo-actos"
                                         ? styles.optionContainer
-                                        : !openBar && url.pathname === "/catalogo-actos"
+                                        : !state.stateMenu && url.pathname === "/catalogo-actos"
                                             ? `${styles.withoutText} ${styles.optionActive}`
                                             : styles.withoutText
                             }
@@ -155,32 +147,32 @@ export default function SideBar({ handleStateBar }) {
                                 <Button
                                     icon={archiveFileIcon}
                                     text="Catálogo de actos"
-                                    openBar={openBar}
+                                    openBar={state.stateMenu}
                                 />
                             </Link>
                         </div>
                         <div
                             className={
-                                openBar && url.pathname === "/configuracion"
+                                state.stateMenu && url.pathname === "/configuracion"
                                     ? `${styles.optionContainer} ${styles.optionActive}`
-                                    : openBar && url.pathname !== "/configuracion"
+                                    : state.stateMenu && url.pathname !== "/configuracion"
                                         ? styles.optionContainer
-                                        : !openBar && url.pathname === "/configuracion"
+                                        : !state.stateMenu && url.pathname === "/configuracion"
                                             ? `${styles.withoutText} ${styles.optionActive}`
                                             : styles.withoutText
                             }
                         >
                             <Link to="/configuracion">
-                                <Button icon={nutIcon} text="Configuración" openBar={openBar} />
+                                <Button icon={nutIcon} text="Configuración" openBar={state.stateMenu} />
                             </Link>
                         </div>
                         <div
                             className={
-                                openBar && url.pathname === "/"
+                                state.stateMenu && url.pathname === "/"
                                     ? `${styles.optionContainer} ${styles.optionActive}`
-                                    : openBar && url.pathname !== "/"
+                                    : state.stateMenu && url.pathname !== "/"
                                         ? styles.optionContainer
-                                        : !openBar && url.pathname === "/"
+                                        : !state.stateMenu && url.pathname === "/"
                                             ? `${styles.withoutText} ${styles.optionActive}`
                                             : styles.withoutText
                             }
@@ -189,7 +181,7 @@ export default function SideBar({ handleStateBar }) {
                                 <Button
                                     icon={userIconSquare}
                                     text="Usuarios"
-                                    openBar={openBar}
+                                    openBar={state.stateMenu}
                                 />
                             </Link>
                         </div>

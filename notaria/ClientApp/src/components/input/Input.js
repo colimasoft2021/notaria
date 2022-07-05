@@ -13,6 +13,9 @@ export default function Input({
     inputOverLabel,
     disabled,
     labelWithBackground,
+    onChange,
+    name,
+    id,
 }) {
     const isIcon = Boolean(icon);
     const hasLabel = Boolean(label);
@@ -35,6 +38,9 @@ export default function Input({
                     type={type}
                     placeholder={placeholder}
                     onClick={onClick}
+                    id={id}
+                    name={name}
+                    onChange={onChange}
                 />
                 <div className={styles.iconInsideInput}>
                     <Button icon={icon} variantIcon="iconInside" onClick={onClick} />
@@ -62,6 +68,9 @@ export default function Input({
                             type={type}
                             placeholder={placeholder}
                             onClick={onClick}
+                            id={id}
+                            name={name}
+                            onChange={onChange}
                         />
                         <div
                             className={
@@ -88,6 +97,9 @@ export default function Input({
                         </div>
                         <input
                             className={`${styles[variant]}`}
+                            id={id}
+                            name={name}
+                            onChange={onChange}
                             type={type}
                             placeholder={placeholder}
                             onClick={onClick}
@@ -105,6 +117,9 @@ export default function Input({
                 type={type}
                 placeholder={placeholder}
                 onClick={onClick}
+                id={id}
+                name={name}
+                onChange={onChange}
             />
         </div>
     );

@@ -1,6 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using notaria.DataContext;
 using notaria.Helpers;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +20,20 @@ builder.Services.AddDbContext<NotariaContext>
         opt.EnableSensitiveDataLogging();
     });
 
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+        };
+    });
 
 var app = builder.Build();
 
@@ -30,11 +48,15 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
+app.UseAuthentication();
+
+app.UseAuthorization();
+
 app.UseCors(x => x
-.AllowAnyMethod()
-.AllowAnyHeader()
-.SetIsOriginAllowed(origin => true) // allow any origin
-.AllowCredentials());
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true) // allow any origin
+                .AllowCredentials());
 
 
 app.MapControllerRoute(

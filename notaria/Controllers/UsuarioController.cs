@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using notaria.DataContext;
@@ -24,19 +25,17 @@ namespace notaria.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult Get()
         {
             try
             {
-                //var jwt = Request.Cookies["jwt"];
-                //var token = _jwtService.Verify(jwt);
-
                 var users = _context.Users.Where(x => x.Activo ==  true).ToList();
                 return Ok(users);
             }
             catch (Exception ex)
             {
-                return Unauthorized();
+                return BadRequest(ex.Message);
             }
         }
 
@@ -48,8 +47,8 @@ namespace notaria.Controllers
             IActionResult ret = null;
             try
             {
-                var jwt = Request.Cookies["jwt"];
-                var token = _jwtService.Verify(jwt);
+                //var jwt = Request.Cookies["jwt"];
+                //var token = _jwtService.Verify(jwt);
 
                 var user = new UserEntity();
                 user.nombre = model.nombre;
@@ -91,23 +90,20 @@ namespace notaria.Controllers
             }
             catch (Exception ex)
             {
-                return Unauthorized();
+                return BadRequest(ex.Message);
             }
         }
 
-        //Verifaca el corre y la contraseña esxistan
-        //[HttpPost("/api/Usuario/Login")]
-        [HttpPost()]
-        public IActionResult Login([FromBody] UserModel model)
+
+        [HttpPut()]
+        public IActionResult Modificar([FromBody] UserModel update)
         {
-            var message = new { status = "", message = "", data="" };
+            var message = new { status = "", message = "" };
             IActionResult ret = null;
             try
             {
-                var user = new UserEntity();
-                user.id = model.id;
-                user.correo = model.correo;
-                user.clave = hashClave(model.clave);
+                //var jwt = Request.Cookies["jwt"];
+                //var token = _jwtService.Verify(jwt);
 
                 var exist = _context.Users.Where(x => x.correo == user.correo && x.clave == user.clave && x.Activo == true).FirstOrDefault();
 
@@ -118,30 +114,19 @@ namespace notaria.Controllers
 
                 var jwt = _jwtService.Generate(exist.id);
 
-                Response.Cookies.Append(key: "jwt", value: jwt, new CookieOptions
+                if (correo.correo == update.correo)
                 {
-                    HttpOnly = true
-                });
-
-                if (exist != null && exist.Activo == true)
+                    return BadRequest("El correo ingresado ya ha sido registrado antes, confirmalo con el Administrador");
+                }
+                string newClave = "";
+                if (hashClave(update.clave) != exist.clave)
                 {
-                    message = new { status = "Ok", message = "Usuario encontrado", data= jwt };
-                    ret = StatusCode(StatusCodes.Status200OK, message);
+                    newClave = hashClave(update.clave);
                 }
                 else
                 {
-                    message = new { status = "Error", message = "Usuario y/o contraseña no coinciden", data ="" };
-                    ret = StatusCode(StatusCodes.Status500InternalServerError, message);
+                    newClave = exist.clave;
                 }
-
-                return ret;
-
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex);
-            }
-        }
 
         [HttpPut()]
         public IActionResult Modificar([FromBody] UserModel update)
@@ -185,7 +170,6 @@ namespace notaria.Controllers
 
                     userData.rolId = exist.rolId;
 
-                    //_context.Update(user);
                     _context.Update(userData);
                     _context.SaveChanges();
 
@@ -209,8 +193,8 @@ namespace notaria.Controllers
 
             try
             {
-                var jwt = Request.Cookies["jwt"];
-                var token = _jwtService.Verify(jwt);
+                //var jwt = Request.Cookies["jwt"];
+                //var token = _jwtService.Verify(jwt);
 
                 var exists = _context.Users.Find(id);
 

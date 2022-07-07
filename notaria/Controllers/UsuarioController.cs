@@ -168,6 +168,10 @@ namespace notaria.Controllers
                 {
                     newClave = hashClave(update.clave);
                 }
+                else
+                {
+                    newClave = exist.clave;
+                }
                 if (exist != null && exist.Activo == true)
                 {
                     var userData =  new UserEntity();

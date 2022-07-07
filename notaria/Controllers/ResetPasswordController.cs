@@ -39,7 +39,7 @@ namespace notaria.Controllers
                 var exist = _context.Users.Where(x => x.correo == correo && x.Activo == true).AsNoTracking().FirstOrDefault();
                 if (exist == null)
                 {
-                    return BadRequest("Correo no valido, si el problema perisite informa al encargado del sistema");
+                    return BadRequest("Correo no valido, si el problema perisiste informa al encargado del sistema");
                 }
                 const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
                 var caracter = new string(Enumerable.Repeat(chars, 10)

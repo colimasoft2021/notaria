@@ -33,14 +33,13 @@ namespace notaria.Controllers
         [AllowAnonymous]
         [HttpPost("/api/Login/Login")]
         [HttpPost]
-        public IActionResult Login([FromBody] UserModel model)
+        public IActionResult Login([FromBody] LoginModel model)
         {
             var message = new { status = "", message = "", data = "" };
             IActionResult ret = null;
             try
             {
                 var user = new UserEntity();
-                user.id = model.id;
                 user.correo = model.correo;
                 user.clave = hashClave(model.clave);
 

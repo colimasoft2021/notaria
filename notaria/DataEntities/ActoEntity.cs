@@ -10,6 +10,6 @@ namespace notaria.DataEntities
         //Foreing key
         public int? tipoActoId { get; set; }
         [ForeignKey("tipoActoId")]
-        public virtual TipoActoEntity TipoActoEntity { get; set; }
+        public virtual TipoActoEntity DataTipoActo { get; set; } = null;
     }
 }

@@ -27,7 +27,7 @@ namespace notaria.Helpers
                     new Claim(ClaimTypes.GivenName, user.apellido),
                     new Claim(ClaimTypes.Surname, user.nombre),
                     new Claim(ClaimTypes.Role, "Admin")
-                };
+            };
 
             var token = new JwtSecurityToken(this.configuration["Jwt:Issuer"],
               this.configuration["Jwt:Audience"],

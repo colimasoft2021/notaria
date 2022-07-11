@@ -47,9 +47,6 @@ namespace notaria.Controllers
             IActionResult ret = null;
             try
             {
-                //var jwt = Request.Cookies["jwt"];
-                //var token = _jwtService.Verify(jwt);
-
                 var user = new UserEntity();
                 user.nombre = model.nombre;
                 user.apellido = model.apellido;
@@ -94,7 +91,6 @@ namespace notaria.Controllers
             }
         }
 
-
         [HttpPut()]
         public IActionResult Modificar([FromBody] UserModel update)
         {
@@ -102,41 +98,6 @@ namespace notaria.Controllers
             IActionResult ret = null;
             try
             {
-                //var jwt = Request.Cookies["jwt"];
-                //var token = _jwtService.Verify(jwt);
-
-                var exist = _context.Users.Where(x => x.correo == user.correo && x.clave == user.clave && x.Activo == true).FirstOrDefault();
-
-                if (exist == null)
-                {
-                    return BadRequest("Credenciales incorrectas");
-                }
-
-                var jwt = _jwtService.Generate(exist.id);
-
-                if (correo.correo == update.correo)
-                {
-                    return BadRequest("El correo ingresado ya ha sido registrado antes, confirmalo con el Administrador");
-                }
-                string newClave = "";
-                if (hashClave(update.clave) != exist.clave)
-                {
-                    newClave = hashClave(update.clave);
-                }
-                else
-                {
-                    newClave = exist.clave;
-                }
-
-        [HttpPut()]
-        public IActionResult Modificar([FromBody] UserModel update)
-        {
-            var message = new { status = "", message = "" };
-            IActionResult ret = null;
-            try
-            {
-                var jwt = Request.Cookies["jwt"];
-                var token = _jwtService.Verify(jwt);
 
                var exist = _context.Users.Where(x => x.id == update.id).AsNoTracking().FirstOrDefault();
 
@@ -193,9 +154,6 @@ namespace notaria.Controllers
 
             try
             {
-                //var jwt = Request.Cookies["jwt"];
-                //var token = _jwtService.Verify(jwt);
-
                 var exists = _context.Users.Find(id);
 
                 if (exists != null && exists.Activo == true)

@@ -47,9 +47,6 @@ namespace notaria.Controllers
             IActionResult ret = null;
             try
             {
-                //var jwt = Request.Cookies["jwt"];
-                //var token = _jwtService.Verify(jwt);
-
                 var user = new UserEntity();
                 user.nombre = model.nombre;
                 user.apellido = model.apellido;
@@ -94,7 +91,6 @@ namespace notaria.Controllers
             }
         }
 
-
         [HttpPut()]
         public IActionResult Modificar([FromBody] UserModel update)
         {
@@ -102,19 +98,19 @@ namespace notaria.Controllers
             IActionResult ret = null;
             try
             {
-                //var jwt = Request.Cookies["jwt"];
-                //var token = _jwtService.Verify(jwt);
 
-                var exist = _context.Users.Where(x => x.correo == update.correo).FirstOrDefault();
+               var exist = _context.Users.Where(x => x.id == update.id).AsNoTracking().FirstOrDefault();
 
-                var correo = _context.Users.Where(x => x.correo == update.correo).AsNoTracking().FirstOrDefault();
+               var correo = _context.Users.Where(x => x.correo == update.correo).AsNoTracking().FirstOrDefault();
 
-                if (correo.correo == update.correo)
+                if( correo.correo == update.correo)
                 {
+                    //message = new { status = "Eroror", message = "El correo ingresado ya ha sido registrado antes, confirmalo con el Administrador" };
+                    //ret = StatusCode(StatusCodes.Status400BadRequest, message);
                     return BadRequest("El correo ingresado ya ha sido registrado antes, confirmalo con el Administrador");
                 }
                 string newClave = "";
-                if (hashClave(update.clave) != exist.clave)
+                if ( hashClave(update.clave) != exist.clave)
                 {
                     newClave = hashClave(update.clave);
                 }
@@ -122,7 +118,6 @@ namespace notaria.Controllers
                 {
                     newClave = exist.clave;
                 }
-
                 if (exist != null && exist.Activo == true)
                 {
                     var userData =  new UserEntity();
@@ -130,9 +125,10 @@ namespace notaria.Controllers
                     userData.nombre = update.nombre;
                     userData.apellido = update.apellido;
                     userData.correo = update.correo;
-                    userData.clave = hashClave(update.clave);
+                    userData.clave = newClave;
                     userData.modificar = update.modificar;
-                    
+                    userData.Activo = true;
+
                     userData.rolId = exist.rolId;
 
                     _context.Update(userData);
@@ -158,9 +154,6 @@ namespace notaria.Controllers
 
             try
             {
-                //var jwt = Request.Cookies["jwt"];
-                //var token = _jwtService.Verify(jwt);
-
                 var exists = _context.Users.Find(id);
 
                 if (exists != null && exists.Activo == true)

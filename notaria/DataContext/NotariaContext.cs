@@ -20,5 +20,7 @@ namespace notaria.DataContext
         public DbSet<TramitePasoEntity> TramitePaso { get; set; }
         public DbSet<ArchivoPasoTramiteEntity> ArchivoPasoTramite { get; set; }
         public DbSet<ArchivoTramiteEntity> ArchivoTramite { get; set; }
+        //ResetPwd
+        public DbSet<TokenEntity> Tokens { get; set; }
     }
 }

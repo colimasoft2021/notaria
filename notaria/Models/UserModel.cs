@@ -1,4 +1,6 @@
-﻿namespace notaria.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace notaria.Models
 {
     public class UserModel
     {
@@ -10,5 +12,12 @@
         public bool? Activo { get; set; }
         public bool? modificar { get; set; }
         public int? rolId { get; set; }
+    }
+    public class confirmPwd
+    {
+        [Required]
+        public string? token { get; set; }
+        [Required]
+        public string? clave { get; set; }
     }
 }

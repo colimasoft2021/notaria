@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using notaria.DataContext;
 
@@ -11,9 +12,10 @@ using notaria.DataContext;
 namespace notaria.Migrations
 {
     [DbContext(typeof(NotariaContext))]
-    partial class NotariaContextModelSnapshot : ModelSnapshot
+    [Migration("20220623222445_TokenEntity")]
+    partial class TokenEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -115,7 +117,7 @@ namespace notaria.Migrations
 
                     b.HasIndex("usuarioCreoId");
 
-                    b.ToTable("ArchivoTramite");
+                    b.ToTable("ArchivoTramiteEntity");
                 });
 
             modelBuilder.Entity("notaria.DataEntities.EstatusEntity", b =>
@@ -258,33 +260,6 @@ namespace notaria.Migrations
                     b.HasKey("id");
 
                     b.ToTable("TipoActo");
-                });
-
-            modelBuilder.Entity("notaria.DataEntities.TokenEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<bool?>("Confirmado")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Correo")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<DateTime?>("FechaCreado")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Token")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Tokens");
                 });
 
             modelBuilder.Entity("notaria.DataEntities.TramiteEntity", b =>

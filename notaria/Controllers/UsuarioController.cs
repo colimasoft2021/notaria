@@ -41,6 +41,7 @@ namespace notaria.Controllers
 
         // crea Usuarioos
         [HttpPost("/api/Usuario/CrearUser")]
+        [Authorize]
         public IActionResult CrearUsuario([FromBody] UserModel model)
         {
             var message = new { status = "", message = "" };
@@ -92,6 +93,7 @@ namespace notaria.Controllers
         }
 
         [HttpPut()]
+        [Authorize]
         public IActionResult Modificar([FromBody] UserModel update)
         {
             var message = new { status = "", message = "" };
@@ -147,6 +149,7 @@ namespace notaria.Controllers
         }
 
         [HttpDelete]
+        [Authorize]
         public IActionResult BajaUsario(int id)
         {
             var message = new { status = "", message = "" };

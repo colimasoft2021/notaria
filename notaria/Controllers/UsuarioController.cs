@@ -92,6 +92,7 @@ namespace notaria.Controllers
             }
         }
 
+        [HttpPost("/api/Usuario/UpdateUser")]
         [HttpPut()]
         [Authorize]
         public IActionResult Modificar([FromBody] UserModel update)
@@ -148,6 +149,7 @@ namespace notaria.Controllers
             }
         }
 
+        [HttpPost("/api/Usuario/DeleteUser")]
         [HttpDelete]
         [Authorize]
         public IActionResult BajaUsario(int id)

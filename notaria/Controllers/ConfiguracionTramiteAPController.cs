@@ -18,16 +18,15 @@ namespace notaria.Controllers
             _context = context;
         }
 
+        [HttpGet("/api/Acto/GetActoPasos")]
         [HttpGet]
-        public IActionResult GetAllConfigurationActoPaso()
+        public IActionResult GetActoPasos(int id)
         {
             try
             {
-                //var ActoPasosConfig = _context.PasoActo.Include(a => a.ActoEntity).ThenInclude(p => p.TipoActoEntity).ToList();
-                var ActoPasosConfig = _context.Acto
+                var ActoPasosConfig = _context.Acto.Where(a => a.id == id)
                     .Include(a => a.TipoActoEntity)
                     .Include(a => a.PasoActoEntity).AsNoTracking().ToList();
-                //var ActoPasosConfig = _context.Acto.Include(a => a.TipoActoEntity).ThenInclude(a => a.PasoActoEntity).ToList();
 
                 return Ok(ActoPasosConfig);
             }
@@ -37,11 +36,14 @@ namespace notaria.Controllers
             }
         }
 
+        [HttpPost("/api/Acto/CreateActoPasos")]
         [HttpPost]
         public IActionResult CrearActoPaso([FromBody] ProcesoActoPasoModel model)
         {
             var message = new { status = "", message = "" };
             IActionResult ret = null;
+
+            Console.WriteLine(model);
 
             try
             {
@@ -99,10 +101,15 @@ namespace notaria.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(message);
+                Console.WriteLine(ex.Message);
+                message = new { status = "Errpr", message = ex.Message };
+                ret = StatusCode(StatusCodes.Status500InternalServerError, message);
+                return ret;
             }
         }
 
+
+        [HttpPost("/api/Acto/UpdateActoPasos")]
         [HttpPut]
         public IActionResult ModificarActoPAso([FromBody] ProcesoActoPasoModel model)
         {

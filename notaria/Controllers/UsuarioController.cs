@@ -40,7 +40,7 @@ namespace notaria.Controllers
         }
 
         // crea Usuarioos
-        [HttpPost("/api/Usuario/CrearUser")]
+        [HttpPost("/api/Usuario/CreateUser")]
         [Authorize]
         public IActionResult CrearUsuario([FromBody] UserModel model)
         {

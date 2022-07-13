@@ -24,8 +24,7 @@ namespace notaria.Controllers
             _jwtService = JwtService;
         }
 
-        [HttpPost("/api/Usuario/GetUsers")]
-        [HttpGet]
+        [HttpGet("/api/Usuario/GetUsers")]
         [Authorize]
         public IActionResult GetUsers()
         {
@@ -40,8 +39,7 @@ namespace notaria.Controllers
             }
         }
 
-        [HttpPost("/api/Usuario/GetUserDetails")]
-        [HttpGet]
+        [HttpGet("/api/Usuario/GetUserDetails")]
         [Authorize]
         public IActionResult GetUserDetails(int id)
         {
@@ -110,7 +108,6 @@ namespace notaria.Controllers
         }
 
         [HttpPut("/api/Usuario/UpdateUser")]
-        [HttpPut()]
         [Authorize]
         public IActionResult Modificar([FromBody] UserModel update)
         {
@@ -167,7 +164,6 @@ namespace notaria.Controllers
         }
 
         [HttpDelete("/api/Usuario/DeleteUser")]
-        [HttpDelete]
         [Authorize]
         public IActionResult BajaUsario(int id)
         {

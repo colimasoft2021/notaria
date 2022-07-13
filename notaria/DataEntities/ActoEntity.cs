@@ -11,5 +11,6 @@ namespace notaria.DataEntities
         public int? tipoActoId { get; set; }
         [ForeignKey("tipoActoId")]
         public virtual TipoActoEntity TipoActoEntity { get; set; }
+        public HashSet<PasoActoEntity> PasoActoEntity { get; set; }
     }
 }

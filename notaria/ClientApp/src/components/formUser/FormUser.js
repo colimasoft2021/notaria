@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect, useRef } from "react";
 import axios from 'axios';
 import styles from "./FormUser.module.scss";
 import Input from "../input/Input";
@@ -6,6 +6,7 @@ import Button from "../../components/button/Button";
 import editBlackIcon from "../../icons/editBlackIcon.png";
 
 export default function FormUser({ formType, modifyUser }) {
+    const formRef = useRef();
     const [data, setData] = useState({ nombre: '', apellido: '', correo: '', clave: '', modificar: false });
     const [campos, setCampo] = useState({ nombre: null, apellido: null, correo: null, clave: null, clave2: null, modificar: false });
     const [activated, setActivated] = useState({ nombre: true, apellido: true, correo: true, clave: true, clave2: true });
@@ -135,16 +136,28 @@ export default function FormUser({ formType, modifyUser }) {
         } else {
             console.log("formulario Modificacion");
             const userData = document.getElementsByTagName('input');
-            console.log(userData)
+            //console.log(userData)
+
+            //const formData = new FormData(formRef.current);
+            //const values = Object.fromEntries(formRef.current);
+            //console.log(values)
+
             Array.from(userData).map(value => {
+                //console.log(value.target)
                 switch (value.id) {
                     case "nombre":
-                        console.log(value.value)
+                        //const nombre = value.value;
+                        setData({ ...data, nombre: value.value });
+                        console.log(value.value);
                         break;
                     case "apellido":
+                        //const apellido = value.value;
+                        setData({ ...data, apellido: value.value });
                         console.log(value.value)
                         break;
                     case "correo":
+                        //const correo = value.value;
+                        setData({ ...data, correo: value.value });
                         console.log(value.value)
                         break;
                     case "clave":
@@ -152,6 +165,7 @@ export default function FormUser({ formType, modifyUser }) {
                         break;
                 }
             })
+            console.log(data)
         }
     }
 
@@ -198,7 +212,7 @@ export default function FormUser({ formType, modifyUser }) {
         return (
             <>
                 <h3>Formulario Modificar</h3>
-                <form onSubmit={createUSer}>
+                <form onSubmit={createUSer} ref={formRef}>
                     <div className={styles.rowOneContainer}>
                         <div className={styles.inputNombre}>
                             <Input

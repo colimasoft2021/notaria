@@ -14,7 +14,7 @@ import nutIcon from "../../icons/nutIcon.png";
 import userIconSquare from "../../icons/userIconSquare.png";
 import arrowBlue from "../../icons/arrowBlueIcon.png";
 
-export default function SideBar({ handleStateBar }) {
+export default function SideBar() {
     const state = useSelector((state) => state);
     const dispatch = useDispatch();
     const url = useLocation();

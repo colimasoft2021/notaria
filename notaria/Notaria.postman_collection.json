@@ -7,56 +7,207 @@
 	},
 	"item": [
 		{
-			"name": "Agregar acto y pasos",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"tipoActoId\": 1,\r\n    \"diasHabiles\": 30,\r\n    \"numeroDePasos\": 5,\r\n    \"PasosActoModels\": [\r\n        {\r\n            \"diasHabiles\": 5,\r\n            \"titulo\": \"2do Aviso\",\r\n            \"permitirArchivo\": false,\r\n            \"esParalelo\": false,\r\n            \"esIndependiente\": true,\r\n            \"campoTrasladoDominio\": false,\r\n            \"campoRegistroPublicoPropiedad\": false,\r\n            \"fechaEnviadoActivoTD\": false,\r\n            \"deSalidaTD\": false,\r\n            \"fechaRevisionTD\": false,\r\n            \"deRechazoTD\": false,\r\n            \"fechaRechazoTD\": false,\r\n            \"motivoRechazoTD\": false,\r\n            \"fechaRechazoEnviadoTD\": false,\r\n            \"fechaRechazoRevisionTD\": false,\r\n            \"positivoRPP\": false,\r\n            \"fechaPositivoFirmaRPP\": false,\r\n            \"fechaPositivoPagoRPP\": false,\r\n            \"fechaPositivoSelloRPP\": false,\r\n            \"calificacionPositivoRPP\": false,\r\n            \"rechazoRPP\": false,\r\n            \"fechaReingresoRechazoRPP\": false,\r\n            \"motivoRechazoRPP\": false\r\n        },\r\n        {\r\n            \"diasHabiles\": 5,\r\n            \"titulo\": \"Pago ISR\",\r\n            \"permitirArchivo\": false,\r\n            \"esParalelo\": false,\r\n            \"esIndependiente\": true,\r\n            \"campoTrasladoDominio\": false,\r\n            \"campoRegistroPublicoPropiedad\": false,\r\n            \"fechaEnviadoActivoTD\": false,\r\n            \"deSalidaTD\": false,\r\n            \"fechaRevisionTD\": false,\r\n            \"deRechazoTD\": false,\r\n            \"fechaRechazoTD\": false,\r\n            \"motivoRechazoTD\": false,\r\n            \"fechaRechazoEnviadoTD\": false,\r\n            \"fechaRechazoRevisionTD\": false,\r\n            \"positivoRPP\": false,\r\n            \"fechaPositivoFirmaRPP\": false,\r\n            \"fechaPositivoPagoRPP\": false,\r\n            \"fechaPositivoSelloRPP\": false,\r\n            \"calificacionPositivoRPP\": false,\r\n            \"rechazoRPP\": false,\r\n            \"fechaReingresoRechazoRPP\": false,\r\n            \"motivoRechazoRPP\": false\r\n        },\r\n        {\r\n            \"diasHabiles\": 5,\r\n            \"titulo\": \"Aviso Vulnerable\",\r\n            \"permitirArchivo\": true,\r\n            \"esParalelo\": true,\r\n            \"esIndependiente\": false,\r\n            \"campoTrasladoDominio\": false,\r\n            \"campoRegistroPublicoPropiedad\": false,\r\n            \"fechaEnviadoActivoTD\": false,\r\n            \"deSalidaTD\": false,\r\n            \"fechaRevisionTD\": false,\r\n            \"deRechazoTD\": false,\r\n            \"fechaRechazoTD\": false,\r\n            \"motivoRechazoTD\": false,\r\n            \"fechaRechazoEnviadoTD\": false,\r\n            \"fechaRechazoRevisionTD\": false,\r\n            \"positivoRPP\": false,\r\n            \"fechaPositivoFirmaRPP\": false,\r\n            \"fechaPositivoPagoRPP\": false,\r\n            \"fechaPositivoSelloRPP\": false,\r\n            \"calificacionPositivoRPP\": false,\r\n            \"rechazoRPP\": false,\r\n            \"fechaReingresoRechazoRPP\": false,\r\n            \"motivoRechazoRPP\": false\r\n        },\r\n        {\r\n            \"diasHabiles\": 5,\r\n            \"titulo\": \"Traslado de Dominio\",\r\n            \"permitirArchivo\": true,\r\n            \"esParalelo\": false,\r\n            \"esIndependiente\": true,\r\n            \"campoTrasladoDominio\": true,\r\n            \"campoRegistroPublicoPropiedad\": false,\r\n            \"fechaEnviadoActivoTD\": true,\r\n            \"deSalidaTD\": true,\r\n            \"fechaRevisionTD\": true,\r\n            \"deRechazoTD\": true,\r\n            \"fechaRechazoTD\": true,\r\n            \"motivoRechazoTD\": true,\r\n            \"fechaRechazoEnviadoTD\": true,\r\n            \"fechaRechazoRevisionTD\": true,\r\n            \"positivoRPP\": false,\r\n            \"fechaPositivoFirmaRPP\": false,\r\n            \"fechaPositivoPagoRPP\": false,\r\n            \"fechaPositivoSelloRPP\": false,\r\n            \"calificacionPositivoRPP\": false,\r\n            \"rechazoRPP\": false,\r\n            \"fechaReingresoRechazoRPP\": false,\r\n            \"motivoRechazoRPP\": false\r\n        },\r\n        {\r\n            \"diasHabiles\": 3,\r\n            \"titulo\": \"Cierre Escritura\",\r\n            \"permitirArchivo\": true,\r\n            \"esParalelo\": true,\r\n            \"esIndependiente\": false,\r\n            \"campoTrasladoDominio\": false,\r\n            \"campoRegistroPublicoPropiedad\": false,\r\n            \"fechaEnviadoActivoTD\": false,\r\n            \"deSalidaTD\": false,\r\n            \"fechaRevisionTD\": false,\r\n            \"deRechazoTD\": false,\r\n            \"fechaRechazoTD\": false,\r\n            \"motivoRechazoTD\": false,\r\n            \"fechaRechazoEnviadoTD\": false,\r\n            \"fechaRechazoRevisionTD\": false,\r\n            \"positivoRPP\": false,\r\n            \"fechaPositivoFirmaRPP\": false,\r\n            \"fechaPositivoPagoRPP\": false,\r\n            \"fechaPositivoSelloRPP\": false,\r\n            \"calificacionPositivoRPP\": false,\r\n            \"rechazoRPP\": false,\r\n            \"fechaReingresoRechazoRPP\": false,\r\n            \"motivoRechazoRPP\": false\r\n        },\r\n        {\r\n            \"diasHabiles\": 5,\r\n            \"titulo\": \"Firma Testimonio Notario\",\r\n            \"permitirArchivo\": true,\r\n            \"esParalelo\": false,\r\n            \"esIndependiente\": true,\r\n            \"campoTrasladoDominio\": false,\r\n            \"campoRegistroPublicoPropiedad\": false,\r\n            \"fechaEnviadoActivoTD\": false,\r\n            \"deSalidaTD\": false,\r\n            \"fechaRevisionTD\": false,\r\n            \"deRechazoTD\": false,\r\n            \"fechaRechazoTD\": false,\r\n            \"motivoRechazoTD\": false,\r\n            \"fechaRechazoEnviadoTD\": false,\r\n            \"fechaRechazoRevisionTD\": false,\r\n            \"positivoRPP\": false,\r\n            \"fechaPositivoFirmaRPP\": false,\r\n            \"fechaPositivoPagoRPP\": false,\r\n            \"fechaPositivoSelloRPP\": false,\r\n            \"calificacionPositivoRPP\": false,\r\n            \"rechazoRPP\": false,\r\n            \"fechaReingresoRechazoRPP\": false,\r\n            \"motivoRechazoRPP\": false\r\n        },\r\n        {\r\n            \"diasHabiles\": 8,\r\n            \"titulo\": \"Ingreso al RPP\",\r\n            \"permitirArchivo\": false,\r\n            \"esParalelo\": false,\r\n            \"esIndependiente\": true,\r\n            \"campoTrasladoDominio\": false,\r\n            \"campoRegistroPublicoPropiedad\": true,\r\n            \"fechaEnviadoActivoTD\": false,\r\n            \"deSalidaTD\": false,\r\n            \"fechaRevisionTD\": false,\r\n            \"deRechazoTD\": false,\r\n            \"fechaRechazoTD\": false,\r\n            \"motivoRechazoTD\": false,\r\n            \"fechaRechazoEnviadoTD\": false,\r\n            \"fechaRechazoRevisionTD\": false,\r\n            \"positivoRPP\": true,\r\n            \"fechaPositivoFirmaRPP\": true,\r\n            \"fechaPositivoPagoRPP\": true,\r\n            \"fechaPositivoSelloRPP\": true,\r\n            \"calificacionPositivoRPP\": true,\r\n            \"rechazoRPP\": true,\r\n            \"fechaReingresoRechazoRPP\": true,\r\n            \"motivoRechazoRPP\": true\r\n        }\r\n    ]\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Acto y pasos",
+			"item": [
+				{
+					"name": "Agregar acto y pasos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipoActoId\": 1,\r\n    \"diasHabiles\": 30,\r\n    \"numeroDePasos\": 5,\r\n    \"PasosActoModels\": [\r\n        {\r\n            \"diasHabiles\": 5,\r\n            \"titulo\": \"2do Aviso\",\r\n            \"permitirArchivo\": false,\r\n            \"esParalelo\": false,\r\n            \"esIndependiente\": true,\r\n            \"campoTrasladoDominio\": false,\r\n            \"campoRegistroPublicoPropiedad\": false,\r\n            \"fechaEnviadoActivoTD\": false,\r\n            \"deSalidaTD\": false,\r\n            \"fechaRevisionTD\": false,\r\n            \"deRechazoTD\": false,\r\n            \"fechaRechazoTD\": false,\r\n            \"motivoRechazoTD\": false,\r\n            \"fechaRechazoEnviadoTD\": false,\r\n            \"fechaRechazoRevisionTD\": false,\r\n            \"positivoRPP\": false,\r\n            \"fechaPositivoFirmaRPP\": false,\r\n            \"fechaPositivoPagoRPP\": false,\r\n            \"fechaPositivoSelloRPP\": false,\r\n            \"calificacionPositivoRPP\": false,\r\n            \"rechazoRPP\": false,\r\n            \"fechaReingresoRechazoRPP\": false,\r\n            \"motivoRechazoRPP\": false\r\n        },\r\n        {\r\n            \"diasHabiles\": 5,\r\n            \"titulo\": \"Pago ISR\",\r\n            \"permitirArchivo\": false,\r\n            \"esParalelo\": false,\r\n            \"esIndependiente\": true,\r\n            \"campoTrasladoDominio\": false,\r\n            \"campoRegistroPublicoPropiedad\": false,\r\n            \"fechaEnviadoActivoTD\": false,\r\n            \"deSalidaTD\": false,\r\n            \"fechaRevisionTD\": false,\r\n            \"deRechazoTD\": false,\r\n            \"fechaRechazoTD\": false,\r\n            \"motivoRechazoTD\": false,\r\n            \"fechaRechazoEnviadoTD\": false,\r\n            \"fechaRechazoRevisionTD\": false,\r\n            \"positivoRPP\": false,\r\n            \"fechaPositivoFirmaRPP\": false,\r\n            \"fechaPositivoPagoRPP\": false,\r\n            \"fechaPositivoSelloRPP\": false,\r\n            \"calificacionPositivoRPP\": false,\r\n            \"rechazoRPP\": false,\r\n            \"fechaReingresoRechazoRPP\": false,\r\n            \"motivoRechazoRPP\": false\r\n        },\r\n        {\r\n            \"diasHabiles\": 5,\r\n            \"titulo\": \"Aviso Vulnerable\",\r\n            \"permitirArchivo\": true,\r\n            \"esParalelo\": true,\r\n            \"esIndependiente\": false,\r\n            \"campoTrasladoDominio\": false,\r\n            \"campoRegistroPublicoPropiedad\": false,\r\n            \"fechaEnviadoActivoTD\": false,\r\n            \"deSalidaTD\": false,\r\n            \"fechaRevisionTD\": false,\r\n            \"deRechazoTD\": false,\r\n            \"fechaRechazoTD\": false,\r\n            \"motivoRechazoTD\": false,\r\n            \"fechaRechazoEnviadoTD\": false,\r\n            \"fechaRechazoRevisionTD\": false,\r\n            \"positivoRPP\": false,\r\n            \"fechaPositivoFirmaRPP\": false,\r\n            \"fechaPositivoPagoRPP\": false,\r\n            \"fechaPositivoSelloRPP\": false,\r\n            \"calificacionPositivoRPP\": false,\r\n            \"rechazoRPP\": false,\r\n            \"fechaReingresoRechazoRPP\": false,\r\n            \"motivoRechazoRPP\": false\r\n        },\r\n        {\r\n            \"diasHabiles\": 5,\r\n            \"titulo\": \"Traslado de Dominio\",\r\n            \"permitirArchivo\": true,\r\n            \"esParalelo\": false,\r\n            \"esIndependiente\": true,\r\n            \"campoTrasladoDominio\": true,\r\n            \"campoRegistroPublicoPropiedad\": false,\r\n            \"fechaEnviadoActivoTD\": true,\r\n            \"deSalidaTD\": true,\r\n            \"fechaRevisionTD\": true,\r\n            \"deRechazoTD\": true,\r\n            \"fechaRechazoTD\": true,\r\n            \"motivoRechazoTD\": true,\r\n            \"fechaRechazoEnviadoTD\": true,\r\n            \"fechaRechazoRevisionTD\": true,\r\n            \"positivoRPP\": false,\r\n            \"fechaPositivoFirmaRPP\": false,\r\n            \"fechaPositivoPagoRPP\": false,\r\n            \"fechaPositivoSelloRPP\": false,\r\n            \"calificacionPositivoRPP\": false,\r\n            \"rechazoRPP\": false,\r\n            \"fechaReingresoRechazoRPP\": false,\r\n            \"motivoRechazoRPP\": false\r\n        },\r\n        {\r\n            \"diasHabiles\": 3,\r\n            \"titulo\": \"Cierre Escritura\",\r\n            \"permitirArchivo\": true,\r\n            \"esParalelo\": true,\r\n            \"esIndependiente\": false,\r\n            \"campoTrasladoDominio\": false,\r\n            \"campoRegistroPublicoPropiedad\": false,\r\n            \"fechaEnviadoActivoTD\": false,\r\n            \"deSalidaTD\": false,\r\n            \"fechaRevisionTD\": false,\r\n            \"deRechazoTD\": false,\r\n            \"fechaRechazoTD\": false,\r\n            \"motivoRechazoTD\": false,\r\n            \"fechaRechazoEnviadoTD\": false,\r\n            \"fechaRechazoRevisionTD\": false,\r\n            \"positivoRPP\": false,\r\n            \"fechaPositivoFirmaRPP\": false,\r\n            \"fechaPositivoPagoRPP\": false,\r\n            \"fechaPositivoSelloRPP\": false,\r\n            \"calificacionPositivoRPP\": false,\r\n            \"rechazoRPP\": false,\r\n            \"fechaReingresoRechazoRPP\": false,\r\n            \"motivoRechazoRPP\": false\r\n        },\r\n        {\r\n            \"diasHabiles\": 5,\r\n            \"titulo\": \"Firma Testimonio Notario\",\r\n            \"permitirArchivo\": true,\r\n            \"esParalelo\": false,\r\n            \"esIndependiente\": true,\r\n            \"campoTrasladoDominio\": false,\r\n            \"campoRegistroPublicoPropiedad\": false,\r\n            \"fechaEnviadoActivoTD\": false,\r\n            \"deSalidaTD\": false,\r\n            \"fechaRevisionTD\": false,\r\n            \"deRechazoTD\": false,\r\n            \"fechaRechazoTD\": false,\r\n            \"motivoRechazoTD\": false,\r\n            \"fechaRechazoEnviadoTD\": false,\r\n            \"fechaRechazoRevisionTD\": false,\r\n            \"positivoRPP\": false,\r\n            \"fechaPositivoFirmaRPP\": false,\r\n            \"fechaPositivoPagoRPP\": false,\r\n            \"fechaPositivoSelloRPP\": false,\r\n            \"calificacionPositivoRPP\": false,\r\n            \"rechazoRPP\": false,\r\n            \"fechaReingresoRechazoRPP\": false,\r\n            \"motivoRechazoRPP\": false\r\n        },\r\n        {\r\n            \"diasHabiles\": 8,\r\n            \"titulo\": \"Ingreso al RPP\",\r\n            \"permitirArchivo\": false,\r\n            \"esParalelo\": false,\r\n            \"esIndependiente\": true,\r\n            \"campoTrasladoDominio\": false,\r\n            \"campoRegistroPublicoPropiedad\": true,\r\n            \"fechaEnviadoActivoTD\": false,\r\n            \"deSalidaTD\": false,\r\n            \"fechaRevisionTD\": false,\r\n            \"deRechazoTD\": false,\r\n            \"fechaRechazoTD\": false,\r\n            \"motivoRechazoTD\": false,\r\n            \"fechaRechazoEnviadoTD\": false,\r\n            \"fechaRechazoRevisionTD\": false,\r\n            \"positivoRPP\": true,\r\n            \"fechaPositivoFirmaRPP\": true,\r\n            \"fechaPositivoPagoRPP\": true,\r\n            \"fechaPositivoSelloRPP\": true,\r\n            \"calificacionPositivoRPP\": true,\r\n            \"rechazoRPP\": true,\r\n            \"fechaReingresoRechazoRPP\": true,\r\n            \"motivoRechazoRPP\": true\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7028/api/Acto/CreateActoPasos",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7028",
+							"path": [
+								"api",
+								"Acto",
+								"CreateActoPasos"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "https://localhost:7028/api/Acto/CreateActoPasos",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "7028",
-					"path": [
-						"api",
-						"Acto",
-						"CreateActoPasos"
-					]
+				{
+					"name": "Obtener acto por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7028/api/Acto/GetActoPasos?id=1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7028",
+							"path": [
+								"api",
+								"Acto",
+								"GetActoPasos"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Obtener acto por id",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://localhost:7028/api/Acto/GetActoPasos/1",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "7028",
-					"path": [
-						"api",
-						"Acto",
-						"GetActoPasos",
-						"1"
-					]
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Obtener detalles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7028/api/Usuario/GetUserDetails?id=1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7028",
+							"path": [
+								"",
+								"api",
+								"Usuario",
+								"GetUserDetails"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar usuarios activos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7028/api/Usuario/GetUsers",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7028",
+							"path": [
+								"api",
+								"Usuario",
+								"GetUsers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"\",\r\n    \"apellido\": \"\",\r\n    \"correo\": \"\",\r\n    \"clave\": \"\",\r\n    \"Active\": \"\",\r\n    \"modificar\": \"\",\r\n    \"rolId\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7028/api/Usuario/CreateUser",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7028",
+							"path": [
+								"api",
+								"Usuario",
+								"CreateUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar usuario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"\",\r\n    \"nombre\": \"\",\r\n    \"apellido\": \"\",\r\n    \"correo\": \"\",\r\n    \"clave\": \"\",\r\n    \"Active\": \"\",\r\n    \"modificar\": \"\",\r\n    \"rolId\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7028/api/Usuario/UpdateUser",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7028",
+							"path": [
+								"api",
+								"Usuario",
+								"UpdateUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar usuario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7028/api/Usuario/DeleteUser?id=1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7028",
+							"path": [
+								"api",
+								"Usuario",
+								"DeleteUser"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		}
 	]
 }

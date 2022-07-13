@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Cookies from "universal-cookie";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import SideBar from "../components/sidebar/SideBar";
 import TopBar from "../components/topbar/TopBar";
 import Table from "../components/table/Table";
@@ -17,14 +18,13 @@ export default function CatalogoResponsables() {
     let navigate = useNavigate();
     const [users, setUsers] = useState([]);
     const [tableUsers, setTableUsers] = useState([]);
-    const [busqueda, setBusqueda] = useState("");
-
+    const cookies = new Cookies();
+    const token = cookies.get("data");
     const handleClick = () => {
-        navigate("/configuracion");
+        navigate("/configuracion/0")
     };
 
     const onChange = (e) => {
-        setBusqueda(e.target.value);
         filtrarElementos(e.target.value);
     }
 
@@ -37,10 +37,15 @@ export default function CatalogoResponsables() {
         setUsers(search);
     }
 
-    const URL = "https://localhost:7028/api/Usuario";
+    const showData = () => {
 
-    const showData = async () => {
-       await axios.get(URL)
+        const URL = "https://localhost:7028/api/Usuario";
+        const config = {
+            headers: {
+                Authorization: "Bearer " + token
+            }
+        }
+        axios.get(URL, config)
             .then((response) => {
                 setUsers(response.data);
                 setTableUsers(response.data);
@@ -67,7 +72,9 @@ export default function CatalogoResponsables() {
              selector: (row) => (
                  <div className={styles.buttonsActionsContainer}>
                      <div>
-                         <Button icon={editIcon} variantIcon="backgroundBlue" />
+                         <Link to={`/configuracion/${row.id}`}>
+                             <Button icon={editIcon} variantIcon="backgroundBlue" />
+                         </Link>
                      </div>
                      <div>
                          <Button icon={deleteIcon} variantIcon="backgroundBlue" />

@@ -10,7 +10,8 @@ export default function Button({
     openBar,
     download,
     iconRight,
-    type
+    type,
+    id
 }) {
     return (
         <button className={`${variant ? styles[variant] : ""}`} onClick={onClick} type={type}>
@@ -39,6 +40,7 @@ export default function Button({
                         <>
                             <img
                                 className={`${variantIcon ? styles[variantIcon] : ""}`}
+                                id={id}
                                 src={icon}
                                 alt={`Icono${text ? ` de ${text}` : ""}`}
                             />

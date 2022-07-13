@@ -26,7 +26,7 @@ ReactDOM.render(
           <Route path="/catalogo-actos" element={<CatalogoActos />} />
           <Route path="/catalogo-responsable" element={<CatalogoResponsables />} />
           <Route path="/seguimiento-tramites" element={<SeguimientoTramites />} />
-          <Route path="/configuracion" element={<Configuracion />} />
+          <Route path="/configuracion/:id" element={<Configuracion />} />
         </Routes>
       </BrowserRouter>
     </Provider>,
@@ -35,4 +35,5 @@ ReactDOM.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+//<Route path="/configuracion" element={<Configuracion />} />
 reportWebVitals();

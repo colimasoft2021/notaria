@@ -1,5 +1,6 @@
 ﻿import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import Cookies from 'universal-cookie';
 import { useNavigate } from "react-router-dom";
 import Button from "../button/Button";
 import Input from "../input/Input";
@@ -8,12 +9,12 @@ import imageSide from "../../images/imgLogin.png";
 import styles from "./Login.module.scss";
 
 export default function Login(props) {
-    const [user, setUser] = useState({ Correo: '', Clave: '' });
-    const [email, setEmail] = useState( {Correo: '', validate: true} );
-    const [password, setPassword] = useState( {Clave: '', validate: true} );
+    const [email, setEmail] = useState( {Correo: '', validate: null} );
+    const [password, setPassword] = useState( {Clave: '', validate: null} );
     let navigate = useNavigate();
+    const cookies = new Cookies();
   
-    const URL = "https://localhost:7028/api/Usuario";
+    const URL = "https://localhost:7028/api/Login/Login";
     const Login = (e) => {
         e.preventDefault();
         const data = { Correo: email.Correo, Clave: password.Clave }
@@ -22,14 +23,10 @@ export default function Login(props) {
         if (email.Correo !== '' && password.Clave !== '') {
             axios.post(URL, data)
                 .then((response) => {
-                    //const serializedState = JSON.stringify(result.data);
-                    //console.log(serializedState)
                     console.log(response)
-                    //var a = localStorage.setItem('myData', serializedState);
-                    //console.log("A: ", a)
-                    //const user = result.data.userDetails;
+                    cookies.set('data', response.data.data);
                     if (response.status === 200)
-                        navigate('/inicio')
+                      navigate('/inicio')
             }).catch(function (error) {
                 console.log(error.response);
             }) 

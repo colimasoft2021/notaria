@@ -328,7 +328,7 @@ input[type="date"]::-webkit-datetime-edit-year-field {
     font-weight: 300;
     height: 64px;
     line-height: 22px;
-    padding: 19px 40px;
+    padding: 19px 70px 19px 40px;
     width: 350px;
 
     @include breakpoint(MD) {

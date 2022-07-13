@@ -16,7 +16,8 @@ export default function Input({
     onChange,
     name,
     id,
-    validate
+    validate,
+    value
 }) {
     const isIcon = Boolean(icon);
     const hasLabel = Boolean(label);
@@ -26,6 +27,21 @@ export default function Input({
         error = `${id} inválido`
     }
 
+    if (id === "nombre" || id === "apellido") {
+        error = `El ${id} solo puede contener letras y espacios.`
+    }
+
+    if (id === "correo") {
+        error = `El ${id} solo puede contener letras, numeros, puntos, guiones y guion bajo.`
+    }
+
+    if (id === "clave") {
+        error = `La ${id} tiene que ser de 4 a 12 dígitos.`
+    }
+
+    if (id === "clave2") {
+        error = `La clave tiene que ser igual a la primera.`
+    }
 
     if (isIcon && hasLabel) {
         return (
@@ -48,9 +64,10 @@ export default function Input({
                     id={id}
                     name={name}
                     onChange={onChange}
+                    defaultValue={value}
                 />
                 <div className={styles.iconInsideInput}>
-                    <Button icon={icon} variantIcon="iconInside" onClick={onClick} />
+                    <Button id={id}  icon={icon} variantIcon="iconInside" onClick={onClick} />
                 </div>
             </div>
         );
@@ -110,8 +127,9 @@ export default function Input({
                             type={type}
                             placeholder={placeholder}
                             onClick={onClick}
-                            />
-                            {!validate ? (<h1 className={styles.error}>{error}</h1>) : (<></>)}
+                            value={value}
+                        />
+                        {validate === false ? (<h1 className={styles.error}>{error}</h1>) : (<></>)}
                     </div>
                         
                 )}

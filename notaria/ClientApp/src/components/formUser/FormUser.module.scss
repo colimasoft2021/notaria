@@ -1,0 +1,36 @@
+﻿@import "../../scss/helpers.scss";
+
+.rowOneContainer,
+.rowThreeContainer {
+    height: auto;
+    display: flex;
+    width: 100%;
+}
+
+.inputNombre,
+.inputApellido,
+.inputContraseña,
+.inputConfirmarContraseña {
+    height: auto;
+    width: 50%;
+}
+
+.rowTwoContainer {
+    margin-top: 51px;
+    margin-bottom: 51px;
+}
+
+.rowThreeContainer {
+    margin-bottom: 60px;
+}
+
+.inputCheckboxContainer {
+    height: 62px;
+}
+
+.buttonContainer {
+    align-items: center;
+    display: flex;
+    justify-content: right;
+}
+

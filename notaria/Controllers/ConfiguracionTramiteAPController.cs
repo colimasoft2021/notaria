@@ -19,7 +19,6 @@ namespace notaria.Controllers
         }
 
         [HttpGet("/api/Acto/GetActoPasos")]
-        [HttpGet]
         public IActionResult GetActoPasos(int id)
         {
             try
@@ -37,7 +36,6 @@ namespace notaria.Controllers
         }
 
         [HttpPost("/api/Acto/CreateActoPasos")]
-        [HttpPost]
         public IActionResult CrearActoPaso([FromBody] ProcesoActoPasoModel model)
         {
             var message = new { status = "", message = "" };
@@ -109,8 +107,7 @@ namespace notaria.Controllers
         }
 
 
-        [HttpPost("/api/Acto/UpdateActoPasos")]
-        [HttpPut]
+        [HttpPut("/api/Acto/UpdateActoPasos")]
         public IActionResult ModificarActoPAso([FromBody] ProcesoActoPasoModel model)
         {
             try

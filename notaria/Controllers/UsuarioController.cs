@@ -24,14 +24,29 @@ namespace notaria.Controllers
             _jwtService = JwtService;
         }
 
-        [HttpGet]
+        [HttpGet("/api/Usuario/GetUsers")]
         [Authorize]
-        public IActionResult Get()
+        public IActionResult GetUsers()
         {
             try
             {
                 var users = _context.Users.Where(x => x.Activo ==  true).ToList();
                 return Ok(users);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("/api/Usuario/GetUserDetails")]
+        [Authorize]
+        public IActionResult GetUserDetails(int id)
+        {
+            try
+            {
+                var user = _context.Users.Where(x => x.Activo == true).Where(u => u.id == id).FirstOrDefault();
+                return Ok(user);
             }
             catch (Exception ex)
             {
@@ -92,8 +107,7 @@ namespace notaria.Controllers
             }
         }
 
-        [HttpPost("/api/Usuario/UpdateUser")]
-        [HttpPut()]
+        [HttpPut("/api/Usuario/UpdateUser")]
         [Authorize]
         public IActionResult Modificar([FromBody] UserModel update)
         {
@@ -149,8 +163,7 @@ namespace notaria.Controllers
             }
         }
 
-        [HttpPost("/api/Usuario/DeleteUser")]
-        [HttpDelete]
+        [HttpDelete("/api/Usuario/DeleteUser")]
         [Authorize]
         public IActionResult BajaUsario(int id)
         {

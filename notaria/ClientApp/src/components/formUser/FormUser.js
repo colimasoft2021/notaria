@@ -11,6 +11,12 @@ export default function FormUser({ formType, modifyUser }) {
     const [campos, setCampo] = useState({ nombre: null, apellido: null, correo: null, clave: null, clave2: null, modificar: false });
     const [activated, setActivated] = useState({ nombre: true, apellido: true, correo: true, clave: true, clave2: true });
 
+    useEffect(() => {
+        if (modifyUser) {
+            setData({ nombre: modifyUser.nombre, apellido: modifyUser.apellido, correo: modifyUser.correo, clave: modifyUser.clave, modificar: modifyUser.modificar });
+        }
+    }, [modifyUser])
+
     //Validacion de Formulario
     const expresiones = {
         nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
@@ -18,7 +24,7 @@ export default function FormUser({ formType, modifyUser }) {
         correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
     }
 
-    const onChange = (e) => {
+    const onChange = (e, name) => {
         e.persist();
         switch (e.target.name) {
             case "nombre":
@@ -70,7 +76,13 @@ export default function FormUser({ formType, modifyUser }) {
                 }
                 break;
         }
-        setData({ ...data, [e.target.name]: e.target.value });
+        //setData({ ...data, [e.target.name]: e.target.value });
+        setData((prevState) => ({ ...prevState, [name]: e.target.value }));
+    }
+
+    const handleChange = (e, name) => {
+        console.log(e.target);
+        setData((prevState) => ({ ...prevState, [name]: e.target.value }));
     }
 
     //Creación de Usuario
@@ -83,7 +95,8 @@ export default function FormUser({ formType, modifyUser }) {
             if (data.nombre !== '' && data.apellido !== '' && data.correo !== '' && data.clave !== '') {
                 if (campos.nombre && campos.apellido && campos.correo && campos.clave) {
                     const dataUser = { nombre: data.nombre, apellido: data.apellido, correo: data.correo, clave: data.clave, modificar: data.modificar };
-                    axios.post(URL, dataUser)
+                    console.log(data);
+                    /*axios.post(URL, dataUser)
                         .then((result) => {
                             console.log(result);
                             e.target.reset();
@@ -91,8 +104,8 @@ export default function FormUser({ formType, modifyUser }) {
                             /*if (result.data.Status == 'Invalid')
                                 alert('Invalid User');
                             else
-                                props.history.push('/Dashboard')*/
-                        })
+                                props.history.push('/Dashboard')
+                        })*/
                     //console.log(dataUser)
                     /*if (dataUser.nombre !== '' && dataUser.apellido !== '' && dataUser.correo !== '' && dataUser.clave !== '' && dataUser.modificar !== '') {
                         console.log("Datos Completos");
@@ -165,7 +178,6 @@ export default function FormUser({ formType, modifyUser }) {
                         break;
                 }
             })
-            console.log(data)
         }
     }
 
@@ -222,7 +234,7 @@ export default function FormUser({ formType, modifyUser }) {
                                 icon={editBlackIcon}
                                 id="nombre"
                                 name="nombre"
-                                onChange={onChange}
+                                onChange={handleChange}
                                 placeholder="Nombre"
                                 type="text"
                                 variant="inputCreateUser"
@@ -239,7 +251,7 @@ export default function FormUser({ formType, modifyUser }) {
                                 icon={editBlackIcon}
                                 id="apellido"
                                 name="apellido"
-                                onChange={onChange}
+                                onChange={handleChange}
                                 placeholder="Apellido"
                                 type="text"
                                 variant="inputCreateUser"
@@ -258,7 +270,7 @@ export default function FormUser({ formType, modifyUser }) {
                                 icon={editBlackIcon}
                                 id="correo"
                                 name="correo"
-                                onChange={onChange}
+                                onChange={handleChange}
                                 placeholder="Correo"
                                 type="email"
                                 variant="inputCreateUser"
@@ -277,7 +289,7 @@ export default function FormUser({ formType, modifyUser }) {
                                 icon={editBlackIcon}
                                 id="clave"
                                 name="clave"
-                                onChange={onChange}
+                                onChange={handleChange}
                                 placeholder="********"
                                 type="password"
                                 variant="inputCreateUser"
@@ -295,7 +307,7 @@ export default function FormUser({ formType, modifyUser }) {
                                 id="clave2"
                                 name="clave2"
                                 placeholder="********"
-                                onChange={onChange}
+                                onChange={handleChange}
                                 type="password"
                                 variant="inputCreateUser"
                                 validate={campos.clave2}
@@ -308,7 +320,7 @@ export default function FormUser({ formType, modifyUser }) {
                         <Input
                             id="modificar"
                             name="modificar"
-                            onChange={onChange}
+                            onChange={handleChange}
                             type="checkbox"
                             label="Modificar vencidos"
                             labelRight

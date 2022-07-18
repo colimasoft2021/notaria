@@ -142,7 +142,7 @@ export default function SideBar() {
                                             ? `${styles.withoutText} ${styles.optionActive}`
                                             : styles.withoutText
                             }
-                        >
+                        >  
                             <Link to="/catalogo-actos">
                                 <Button
                                     icon={archiveFileIcon}

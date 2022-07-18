@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Cookies from "universal-cookie";
 import { useSelector } from "react-redux";
 import SideBar from "../components/sidebar/SideBar";
 import TopBar from "../components/topbar/TopBar";
@@ -10,7 +12,31 @@ import styles from "../scss/pages/Inicio.module.scss";
 
 export default function Inicio() {
     const state = useSelector((state) => state);
+    const [data, setData] = useState([]);
+    const cookies = new Cookies();
+    const token = cookies.get("data");
+    //Obtener datos de usuario a modificar
+    const getDataUser = () => {
 
+        const URL = "https://localhost:7028/api/Acto/GetActoPasos";
+        const config = {
+            headers: {
+                Authorization: "Bearer " + token
+            }
+        }
+        axios.get(URL, config)
+            .then((response) => {
+                console.log(response)
+            }).catch((error) => {
+                console.log(error);
+            });
+    };
+
+    useEffect(() => {
+        getDataUser();
+    }, []);
+
+    console.log(data)
     return (
         <div className={styles.homeContainer}>
             <div

@@ -63,7 +63,7 @@ export default function Input({
                     onClick={onClick}
                     id={id}
                     name={name}
-                    onChange={onChange}
+                    onChange={(e) => onChange(e,name)}
                     defaultValue={value}
                 />
                 <div className={styles.iconInsideInput}>

@@ -1,13 +1,18 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace notaria.DataEntities
+﻿namespace notaria.Models
 {
-    public class PasoActoEntity
+    public class CatalogoActoModel
     {
         public int id { get; set; }
         public int? diasHabiles { get; set; }
-        [StringLength(100)]
+        public int? numeroDePasos { get; set; }
+        public int? tipoActoId { get; set; }
+        public List<PasoActoModel> PasosActoModels { get; set; }
+    }
+
+    public class PasoActoModel
+    {
+        public int id { get; set; }
+        public int? diasHabiles { get; set; }
         public string? titulo { get; set; }
         public bool? permitirArchivo { get; set; }
         public bool? esParalelo { get; set; }
@@ -32,9 +37,8 @@ namespace notaria.DataEntities
         public bool? rechazoActivoRPP { get; set; }
         public bool? fechaReingresoRechazoActivoRPP { get; set; }
         public bool? motivoRechazoActivoRPP { get; set; }
-        //Foreing Key
+
+        //Foreing key
         public int? actoId { get; set; }
-        [ForeignKey("actoId")]
-        public virtual ActoEntity ActoEntity { get; set; }
     }
 }

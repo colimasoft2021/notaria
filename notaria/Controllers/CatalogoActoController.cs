@@ -9,11 +9,11 @@ namespace notaria.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ConfiguracionTramiteAPController : ControllerBase
+    public class CatalogoActoController : ControllerBase
     {
         private readonly NotariaContext _context;
 
-        public ConfiguracionTramiteAPController(NotariaContext context)
+        public CatalogoActoController(NotariaContext context)
         {
             _context = context;
         }
@@ -36,7 +36,7 @@ namespace notaria.Controllers
         }
 
         [HttpPost("/api/Acto/CreateActoPasos")]
-        public IActionResult CrearActoPaso([FromBody] ProcesoActoPasoModel model)
+        public IActionResult CrearActoPaso([FromBody] CatalogoActoModel model)
         {
             var message = new { status = "", message = "" };
             IActionResult ret = null;
@@ -60,27 +60,27 @@ namespace notaria.Controllers
                         valPaso.titulo = paso.titulo;
                         valPaso.permitirArchivo = paso.permitirArchivo;
                         valPaso.esParalelo = paso.esParalelo;
-                        valPaso.esIndependiente = paso.esIndependiente;
                         valPaso.campoTrasladoDominio = paso.campoTrasladoDominio;
                         valPaso.campoRegistroPublicoPropiedad = paso.campoRegistroPublicoPropiedad;
                         //TrasladoDominio - TD
                         valPaso.fechaEnviadoActivoTD = paso.fechaEnviadoActivoTD;
-                        valPaso.deSalidaTD = paso.deSalidaTD;
-                        valPaso.fechaRevisionTD = paso.fechaRevisionTD;
-                        valPaso.deRechazoTD = paso.deRechazoTD;
-                        valPaso.fechaRechazoTD = paso.fechaRechazoTD;
-                        valPaso.motivoRechazoTD = paso.motivoRechazoTD;
-                        valPaso.fechaRechazoEnviadoTD = paso.fechaRechazoEnviadoTD;
-                        valPaso.fechaRechazoRevisionTD = paso.fechaRechazoRevisionTD;
+                        valPaso.fechaRevisionActivoTD = paso.fechaRevisionActivoTD;
+                        valPaso.deSalidaActivoTD = paso.deSalidaActivoTD;
+                        valPaso.fechaDeSalidaActivoTD = paso.fechaDeSalidaActivoTD;
+                        valPaso.deRechazoActivoTD = paso.deRechazoActivoTD;
+                        valPaso.fechaRechazoActivoTD = paso.fechaRechazoActivoTD;
+                        valPaso.motivoRechazoActivoTD = paso.motivoRechazoActivoTD;
+                        valPaso.fechaRechazoEnviadoActivoTD = paso.fechaRechazoEnviadoActivoTD;
+                        valPaso.fechaRechazoRevisionActivoTD = paso.fechaRechazoRevisionActivoTD;
                         //RegistroPublicoPropiedad - RPP
-                        valPaso.positivoRPP = paso.positivoRPP;
-                        valPaso.fechaPositivoFirmaRPP = paso.fechaPositivoFirmaRPP;
-                        valPaso.fechaPositivoPagoRPP = paso.fechaPositivoPagoRPP;
-                        valPaso.fechaPositivoSelloRPP = paso.fechaPositivoSelloRPP;
-                        valPaso.calificacionPositivoRPP = paso.calificacionPositivoRPP;
-                        valPaso.rechazoRPP = paso.rechazoRPP;
-                        valPaso.fechaReingresoRechazoRPP = paso.fechaReingresoRechazoRPP;
-                        valPaso.motivoRechazoRPP = paso.motivoRechazoRPP;
+                        valPaso.positivoActivoRPP = paso.positivoActivoRPP;
+                        valPaso.fechaPositivoFirmaActivoRPP = paso.fechaPositivoFirmaActivoRPP;
+                        valPaso.fechaPositivoPagoActivoRPP = paso.fechaPositivoPagoActivoRPP;
+                        valPaso.fechaPositivoSelloActivoRPP = paso.fechaPositivoSelloActivoRPP;
+                        valPaso.calificacionPositivoActivoRPP = paso.calificacionPositivoActivoRPP;
+                        valPaso.rechazoActivoRPP = paso.rechazoActivoRPP;
+                        valPaso.fechaReingresoRechazoActivoRPP = paso.fechaReingresoRechazoActivoRPP;
+                        valPaso.motivoRechazoActivoRPP = paso.motivoRechazoActivoRPP;
 
                         valPaso.actoId = acto.id;
                         _context.PasoActo.Add(valPaso);
@@ -108,7 +108,7 @@ namespace notaria.Controllers
 
 
         [HttpPut("/api/Acto/UpdateActoPasos")]
-        public IActionResult ModificarActoPAso([FromBody] ProcesoActoPasoModel model)
+        public IActionResult ModificarActoPAso([FromBody] CatalogoActoModel model)
         {
             try
             {
@@ -130,27 +130,27 @@ namespace notaria.Controllers
                         valPaso.titulo = paso.titulo;
                         valPaso.permitirArchivo = paso.permitirArchivo;
                         valPaso.esParalelo = paso.esParalelo;
-                        valPaso.esIndependiente = paso.esIndependiente;
                         valPaso.campoTrasladoDominio = paso.campoTrasladoDominio;
                         valPaso.campoRegistroPublicoPropiedad = paso.campoRegistroPublicoPropiedad;
                         //TrasladoDominio - TD
                         valPaso.fechaEnviadoActivoTD = paso.fechaEnviadoActivoTD;
-                        valPaso.deSalidaTD = paso.deSalidaTD;
-                        valPaso.fechaRevisionTD = paso.fechaRevisionTD;
-                        valPaso.deRechazoTD = paso.deRechazoTD;
-                        valPaso.fechaRechazoTD = paso.fechaRechazoTD;
-                        valPaso.motivoRechazoTD = paso.motivoRechazoTD;
-                        valPaso.fechaRechazoEnviadoTD = paso.fechaRechazoEnviadoTD;
-                        valPaso.fechaRechazoRevisionTD = paso.fechaRechazoRevisionTD;
+                        valPaso.fechaRevisionActivoTD = paso.fechaRevisionActivoTD;
+                        valPaso.deSalidaActivoTD = paso.deSalidaActivoTD;
+                        valPaso.fechaDeSalidaActivoTD = paso.fechaDeSalidaActivoTD;
+                        valPaso.deRechazoActivoTD = paso.deRechazoActivoTD;
+                        valPaso.fechaRechazoActivoTD = paso.fechaRechazoActivoTD;
+                        valPaso.motivoRechazoActivoTD = paso.motivoRechazoActivoTD;
+                        valPaso.fechaRechazoEnviadoActivoTD = paso.fechaRechazoEnviadoActivoTD;
+                        valPaso.fechaRechazoRevisionActivoTD = paso.fechaRechazoRevisionActivoTD;
                         //RegistroPublicoPropiedad - RPP
-                        valPaso.positivoRPP = paso.positivoRPP;
-                        valPaso.fechaPositivoFirmaRPP = paso.fechaPositivoFirmaRPP;
-                        valPaso.fechaPositivoPagoRPP = paso.fechaPositivoPagoRPP;
-                        valPaso.fechaPositivoSelloRPP = paso.fechaPositivoSelloRPP;
-                        valPaso.calificacionPositivoRPP = paso.calificacionPositivoRPP;
-                        valPaso.rechazoRPP = paso.rechazoRPP;
-                        valPaso.fechaReingresoRechazoRPP = paso.fechaReingresoRechazoRPP;
-                        valPaso.motivoRechazoRPP = paso.motivoRechazoRPP;
+                        valPaso.positivoActivoRPP = paso.positivoActivoRPP;
+                        valPaso.fechaPositivoFirmaActivoRPP = paso.fechaPositivoFirmaActivoRPP;
+                        valPaso.fechaPositivoPagoActivoRPP = paso.fechaPositivoPagoActivoRPP;
+                        valPaso.fechaPositivoSelloActivoRPP = paso.fechaPositivoSelloActivoRPP;
+                        valPaso.calificacionPositivoActivoRPP = paso.calificacionPositivoActivoRPP;
+                        valPaso.rechazoActivoRPP = paso.rechazoActivoRPP;
+                        valPaso.fechaReingresoRechazoActivoRPP = paso.fechaReingresoRechazoActivoRPP;
+                        valPaso.motivoRechazoActivoRPP = paso.motivoRechazoActivoRPP;
 
                         valPaso.actoId = acto.id;
                         _context.PasoActo.Update(valPaso);

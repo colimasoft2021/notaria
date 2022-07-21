@@ -146,7 +146,7 @@ namespace notaria.Migrations
                     b.Property<int?>("actoId")
                         .HasColumnType("int");
 
-                    b.Property<bool?>("calificacionPositivoRPP")
+                    b.Property<bool?>("calificacionPositivoActivoRPP")
                         .HasColumnType("bit");
 
                     b.Property<bool?>("campoRegistroPublicoPropiedad")
@@ -155,61 +155,61 @@ namespace notaria.Migrations
                     b.Property<bool?>("campoTrasladoDominio")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("deRechazoTD")
+                    b.Property<bool?>("deRechazoActivoTD")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("deSalidaTD")
+                    b.Property<bool?>("deSalidaActivoTD")
                         .HasColumnType("bit");
 
                     b.Property<int?>("diasHabiles")
                         .HasColumnType("int");
 
-                    b.Property<bool?>("esIndependiente")
+                    b.Property<bool?>("esParalelo")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("esParalelo")
+                    b.Property<bool?>("fechaDeSalidaActivoTD")
                         .HasColumnType("bit");
 
                     b.Property<bool?>("fechaEnviadoActivoTD")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("fechaPositivoFirmaRPP")
+                    b.Property<bool?>("fechaPositivoFirmaActivoRPP")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("fechaPositivoPagoRPP")
+                    b.Property<bool?>("fechaPositivoPagoActivoRPP")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("fechaPositivoSelloRPP")
+                    b.Property<bool?>("fechaPositivoSelloActivoRPP")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("fechaRechazoEnviadoTD")
+                    b.Property<bool?>("fechaRechazoActivoTD")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("fechaRechazoRevisionTD")
+                    b.Property<bool?>("fechaRechazoEnviadoActivoTD")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("fechaRechazoTD")
+                    b.Property<bool?>("fechaRechazoRevisionActivoTD")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("fechaReingresoRechazoRPP")
+                    b.Property<bool?>("fechaReingresoRechazoActivoRPP")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("fechaRevisionTD")
+                    b.Property<bool?>("fechaRevisionActivoTD")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("motivoRechazoRPP")
+                    b.Property<bool?>("motivoRechazoActivoRPP")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("motivoRechazoTD")
+                    b.Property<bool?>("motivoRechazoActivoTD")
                         .HasColumnType("bit");
 
                     b.Property<bool?>("permitirArchivo")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("positivoRPP")
+                    b.Property<bool?>("positivoActivoRPP")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("rechazoRPP")
+                    b.Property<bool?>("rechazoActivoRPP")
                         .HasColumnType("bit");
 
                     b.Property<string>("titulo")
@@ -346,10 +346,23 @@ namespace notaria.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
 
+                    b.Property<bool?>("calificacionPositivoActivoRPP")
+                        .HasColumnType("bit");
+
                     b.Property<string>("calificacionPositivoRPP")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("campoRegistroPublicoPropiedad")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("campoTrasladoDominio")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("deRechazoActivoTD")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("deSalidaActivoTD")
+                        .HasColumnType("bit");
 
                     b.Property<int?>("diasHabiles")
                         .HasColumnType("int");
@@ -357,20 +370,38 @@ namespace notaria.Migrations
                     b.Property<int?>("diasRetraso")
                         .HasColumnType("int");
 
+                    b.Property<bool?>("esParalelo")
+                        .HasColumnType("bit");
+
                     b.Property<int?>("estatusId")
                         .HasColumnType("int");
+
+                    b.Property<bool?>("fechaDeSalidaActivoTD")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime?>("fechaDeSalidaTD")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("fechaEnviadoActivoTD")
+                    b.Property<bool?>("fechaEnviadoActivoTD")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("fechaEnviadoTD")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool?>("fechaPositivoFirmaActivoRPP")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime?>("fechaPositivoFirmaRPP")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool?>("fechaPositivoPagoActivoRPP")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime?>("fechaPositivoPagoRPP")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool?>("fechaPositivoSelloActivoRPP")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime?>("fechaPositivoSelloRPP")
                         .HasColumnType("datetime2");
@@ -378,8 +409,17 @@ namespace notaria.Migrations
                     b.Property<DateTime?>("fechaRealizado")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool?>("fechaRechazoActivoTD")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("fechaRechazoEnviadoActivoTD")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime?>("fechaRechazoEnviadoTD")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool?>("fechaRechazoRevisionActivoTD")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime?>("fechaRechazoRevisionTD")
                         .HasColumnType("datetime2");
@@ -387,8 +427,14 @@ namespace notaria.Migrations
                     b.Property<DateTime?>("fechaRechazoTD")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool?>("fechaReingresoRechazoActivoRPP")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime?>("fechaReingresoRechazoRPP")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool?>("fechaRevisionActivoTD")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime?>("fechaRevisionTD")
                         .HasColumnType("datetime2");
@@ -396,26 +442,25 @@ namespace notaria.Migrations
                     b.Property<DateTime?>("fechaVencimiento")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("motivoReachazoTD")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("motivoRechazoActivoRPP")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("motivoRechazoActivoTD")
+                        .HasColumnType("bit");
+
                     b.Property<string>("motivoRechazoRPP")
-                        .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("motivoRechazoTD")
-                        .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.Property<int?>("pasoActoId")
-                        .HasColumnType("int");
-
-                    b.Property<bool?>("positivoRPP")
+                    b.Property<bool?>("permitirArchivo")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("rechazoRPP")
+                    b.Property<bool?>("positivoActivoRPP")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("rechazoTD")
+                    b.Property<bool?>("rechazoActivoRPP")
                         .HasColumnType("bit");
 
                     b.Property<string>("titulo")
@@ -432,8 +477,6 @@ namespace notaria.Migrations
                     b.HasKey("id");
 
                     b.HasIndex("estatusId");
-
-                    b.HasIndex("pasoActoId");
 
                     b.HasIndex("tramiteId");
 
@@ -529,7 +572,7 @@ namespace notaria.Migrations
             modelBuilder.Entity("notaria.DataEntities.PasoActoEntity", b =>
                 {
                     b.HasOne("notaria.DataEntities.ActoEntity", "ActoEntity")
-                        .WithMany()
+                        .WithMany("PasoActoEntity")
                         .HasForeignKey("actoId");
 
                     b.Navigation("ActoEntity");
@@ -562,12 +605,8 @@ namespace notaria.Migrations
                         .WithMany()
                         .HasForeignKey("estatusId");
 
-                    b.HasOne("notaria.DataEntities.PasoActoEntity", "PasoActoEntity")
-                        .WithMany()
-                        .HasForeignKey("pasoActoId");
-
                     b.HasOne("notaria.DataEntities.TramiteEntity", "TramiteEntity")
-                        .WithMany()
+                        .WithMany("PasosTramite")
                         .HasForeignKey("tramiteId");
 
                     b.HasOne("notaria.DataEntities.UserEntity", "UserEntity")
@@ -575,8 +614,6 @@ namespace notaria.Migrations
                         .HasForeignKey("usuarioId");
 
                     b.Navigation("EstatusEntity");
-
-                    b.Navigation("PasoActoEntity");
 
                     b.Navigation("TramiteEntity");
 
@@ -590,6 +627,16 @@ namespace notaria.Migrations
                         .HasForeignKey("rolId");
 
                     b.Navigation("RolEntity");
+                });
+
+            modelBuilder.Entity("notaria.DataEntities.ActoEntity", b =>
+                {
+                    b.Navigation("PasoActoEntity");
+                });
+
+            modelBuilder.Entity("notaria.DataEntities.TramiteEntity", b =>
+                {
+                    b.Navigation("PasosTramite");
                 });
 #pragma warning restore 612, 618
         }

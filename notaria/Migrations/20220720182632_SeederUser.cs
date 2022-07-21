@@ -4,7 +4,7 @@
 
 namespace notaria.Migrations
 {
-    public partial class SeedersInitial : Migration
+    public partial class SeederUser : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

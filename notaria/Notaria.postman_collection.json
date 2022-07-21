@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"tipoActoId\": 1,\r\n    \"diasHabiles\": 30,\r\n    \"numeroDePasos\": 5,\r\n    \"PasosActoModels\": [\r\n        {\r\n            \"diasHabiles\": 5,\r\n            \"titulo\": \"2do Aviso\",\r\n            \"permitirArchivo\": false,\r\n            \"esParalelo\": false,\r\n            \"esIndependiente\": true,\r\n            \"campoTrasladoDominio\": false,\r\n            \"campoRegistroPublicoPropiedad\": false,\r\n            \"fechaEnviadoActivoTD\": false,\r\n            \"deSalidaTD\": false,\r\n            \"fechaRevisionTD\": false,\r\n            \"deRechazoTD\": false,\r\n            \"fechaRechazoTD\": false,\r\n            \"motivoRechazoTD\": false,\r\n            \"fechaRechazoEnviadoTD\": false,\r\n            \"fechaRechazoRevisionTD\": false,\r\n            \"positivoRPP\": false,\r\n            \"fechaPositivoFirmaRPP\": false,\r\n            \"fechaPositivoPagoRPP\": false,\r\n            \"fechaPositivoSelloRPP\": false,\r\n            \"calificacionPositivoRPP\": false,\r\n            \"rechazoRPP\": false,\r\n            \"fechaReingresoRechazoRPP\": false,\r\n            \"motivoRechazoRPP\": false\r\n        },\r\n        {\r\n            \"diasHabiles\": 5,\r\n            \"titulo\": \"Pago ISR\",\r\n            \"permitirArchivo\": false,\r\n            \"esParalelo\": false,\r\n            \"esIndependiente\": true,\r\n            \"campoTrasladoDominio\": false,\r\n            \"campoRegistroPublicoPropiedad\": false,\r\n            \"fechaEnviadoActivoTD\": false,\r\n            \"deSalidaTD\": false,\r\n            \"fechaRevisionTD\": false,\r\n            \"deRechazoTD\": false,\r\n            \"fechaRechazoTD\": false,\r\n            \"motivoRechazoTD\": false,\r\n            \"fechaRechazoEnviadoTD\": false,\r\n            \"fechaRechazoRevisionTD\": false,\r\n            \"positivoRPP\": false,\r\n            \"fechaPositivoFirmaRPP\": false,\r\n            \"fechaPositivoPagoRPP\": false,\r\n            \"fechaPositivoSelloRPP\": false,\r\n            \"calificacionPositivoRPP\": false,\r\n            \"rechazoRPP\": false,\r\n            \"fechaReingresoRechazoRPP\": false,\r\n            \"motivoRechazoRPP\": false\r\n        },\r\n        {\r\n            \"diasHabiles\": 5,\r\n            \"titulo\": \"Aviso Vulnerable\",\r\n            \"permitirArchivo\": true,\r\n            \"esParalelo\": true,\r\n            \"esIndependiente\": false,\r\n            \"campoTrasladoDominio\": false,\r\n            \"campoRegistroPublicoPropiedad\": false,\r\n            \"fechaEnviadoActivoTD\": false,\r\n            \"deSalidaTD\": false,\r\n            \"fechaRevisionTD\": false,\r\n            \"deRechazoTD\": false,\r\n            \"fechaRechazoTD\": false,\r\n            \"motivoRechazoTD\": false,\r\n            \"fechaRechazoEnviadoTD\": false,\r\n            \"fechaRechazoRevisionTD\": false,\r\n            \"positivoRPP\": false,\r\n            \"fechaPositivoFirmaRPP\": false,\r\n            \"fechaPositivoPagoRPP\": false,\r\n            \"fechaPositivoSelloRPP\": false,\r\n            \"calificacionPositivoRPP\": false,\r\n            \"rechazoRPP\": false,\r\n            \"fechaReingresoRechazoRPP\": false,\r\n            \"motivoRechazoRPP\": false\r\n        },\r\n        {\r\n            \"diasHabiles\": 5,\r\n            \"titulo\": \"Traslado de Dominio\",\r\n            \"permitirArchivo\": true,\r\n            \"esParalelo\": false,\r\n            \"esIndependiente\": true,\r\n            \"campoTrasladoDominio\": true,\r\n            \"campoRegistroPublicoPropiedad\": false,\r\n            \"fechaEnviadoActivoTD\": true,\r\n            \"deSalidaTD\": true,\r\n            \"fechaRevisionTD\": true,\r\n            \"deRechazoTD\": true,\r\n            \"fechaRechazoTD\": true,\r\n            \"motivoRechazoTD\": true,\r\n            \"fechaRechazoEnviadoTD\": true,\r\n            \"fechaRechazoRevisionTD\": true,\r\n            \"positivoRPP\": false,\r\n            \"fechaPositivoFirmaRPP\": false,\r\n            \"fechaPositivoPagoRPP\": false,\r\n            \"fechaPositivoSelloRPP\": false,\r\n            \"calificacionPositivoRPP\": false,\r\n            \"rechazoRPP\": false,\r\n            \"fechaReingresoRechazoRPP\": false,\r\n            \"motivoRechazoRPP\": false\r\n        },\r\n        {\r\n            \"diasHabiles\": 3,\r\n            \"titulo\": \"Cierre Escritura\",\r\n            \"permitirArchivo\": true,\r\n            \"esParalelo\": true,\r\n            \"esIndependiente\": false,\r\n            \"campoTrasladoDominio\": false,\r\n            \"campoRegistroPublicoPropiedad\": false,\r\n            \"fechaEnviadoActivoTD\": false,\r\n            \"deSalidaTD\": false,\r\n            \"fechaRevisionTD\": false,\r\n            \"deRechazoTD\": false,\r\n            \"fechaRechazoTD\": false,\r\n            \"motivoRechazoTD\": false,\r\n            \"fechaRechazoEnviadoTD\": false,\r\n            \"fechaRechazoRevisionTD\": false,\r\n            \"positivoRPP\": false,\r\n            \"fechaPositivoFirmaRPP\": false,\r\n            \"fechaPositivoPagoRPP\": false,\r\n            \"fechaPositivoSelloRPP\": false,\r\n            \"calificacionPositivoRPP\": false,\r\n            \"rechazoRPP\": false,\r\n            \"fechaReingresoRechazoRPP\": false,\r\n            \"motivoRechazoRPP\": false\r\n        },\r\n        {\r\n            \"diasHabiles\": 5,\r\n            \"titulo\": \"Firma Testimonio Notario\",\r\n            \"permitirArchivo\": true,\r\n            \"esParalelo\": false,\r\n            \"esIndependiente\": true,\r\n            \"campoTrasladoDominio\": false,\r\n            \"campoRegistroPublicoPropiedad\": false,\r\n            \"fechaEnviadoActivoTD\": false,\r\n            \"deSalidaTD\": false,\r\n            \"fechaRevisionTD\": false,\r\n            \"deRechazoTD\": false,\r\n            \"fechaRechazoTD\": false,\r\n            \"motivoRechazoTD\": false,\r\n            \"fechaRechazoEnviadoTD\": false,\r\n            \"fechaRechazoRevisionTD\": false,\r\n            \"positivoRPP\": false,\r\n            \"fechaPositivoFirmaRPP\": false,\r\n            \"fechaPositivoPagoRPP\": false,\r\n            \"fechaPositivoSelloRPP\": false,\r\n            \"calificacionPositivoRPP\": false,\r\n            \"rechazoRPP\": false,\r\n            \"fechaReingresoRechazoRPP\": false,\r\n            \"motivoRechazoRPP\": false\r\n        },\r\n        {\r\n            \"diasHabiles\": 8,\r\n            \"titulo\": \"Ingreso al RPP\",\r\n            \"permitirArchivo\": false,\r\n            \"esParalelo\": false,\r\n            \"esIndependiente\": true,\r\n            \"campoTrasladoDominio\": false,\r\n            \"campoRegistroPublicoPropiedad\": true,\r\n            \"fechaEnviadoActivoTD\": false,\r\n            \"deSalidaTD\": false,\r\n            \"fechaRevisionTD\": false,\r\n            \"deRechazoTD\": false,\r\n            \"fechaRechazoTD\": false,\r\n            \"motivoRechazoTD\": false,\r\n            \"fechaRechazoEnviadoTD\": false,\r\n            \"fechaRechazoRevisionTD\": false,\r\n            \"positivoRPP\": true,\r\n            \"fechaPositivoFirmaRPP\": true,\r\n            \"fechaPositivoPagoRPP\": true,\r\n            \"fechaPositivoSelloRPP\": true,\r\n            \"calificacionPositivoRPP\": true,\r\n            \"rechazoRPP\": true,\r\n            \"fechaReingresoRechazoRPP\": true,\r\n            \"motivoRechazoRPP\": true\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"tipoActoId\": 1,\r\n    \"diasHabiles\": 30,\r\n    \"numeroDePasos\": 5,\r\n    \"PasosActoModels\": [\r\n        {\r\n            \"diasHabiles\": 5,\r\n            \"titulo\": \"2do Aviso\",\r\n            \"permitirArchivo\": false,\r\n            \"esParalelo\": false,\r\n            \"campoTrasladoDominio\": false,\r\n            \"campoRegistroPublicoPropiedad\": false,\r\n            \"fechaEnviadoActivoTD\": false,\r\n            \"fechaRevisionActivoTD\": false,\r\n            \"deSalidaActivoTD\": false,\r\n            \"fechaDeSalidaActivoTD\": false,\r\n            \"deRechazoActivoTD\": false,\r\n            \"fechaRechazoActivoTD\": false,\r\n            \"motivoRechazoActivoTD\": false,\r\n            \"fechaRechazoEnviadoActivoTD\": false,\r\n            \"fechaRechazoRevisionActivoTD\": false,\r\n            \"positivoActivoRPP\": false,\r\n            \"fechaPositivoFirmaActivoRPP\": false,\r\n            \"fechaPositivoPagoActivoRPP\": false,\r\n            \"fechaPositivoSelloActivoRPP\": false,\r\n            \"calificacionPositivoActivoRPP\": false,\r\n            \"rechazoActivoRPP\": false,\r\n            \"fechaReingresoRechazoActivoRPP\": false,\r\n            \"motivoRechazoActivoRPP\": false\r\n        },\r\n        {\r\n            \"diasHabiles\": 5,\r\n            \"titulo\": \"Pago ISR\",\r\n            \"permitirArchivo\": false,\r\n            \"esParalelo\": false,\r\n            \"campoTrasladoDominio\": false,\r\n            \"campoRegistroPublicoPropiedad\": false,\r\n            \"fechaEnviadoActivoTD\": false,\r\n            \"fechaRevisionActivoTD\": false,\r\n            \"deSalidaActivoTD\": false,\r\n            \"fechaDeSalidaActivoTD\": false,\r\n            \"deRechazoActivoTD\": false,\r\n            \"fechaRechazoActivoTD\": false,\r\n            \"motivoRechazoActivoTD\": false,\r\n            \"fechaRechazoEnviadoActivoTD\": false,\r\n            \"fechaRechazoRevisionActivoTD\": false,\r\n            \"positivoActivoRPP\": false,\r\n            \"fechaPositivoFirmaActivoRPP\": false,\r\n            \"fechaPositivoPagoActivoRPP\": false,\r\n            \"fechaPositivoSelloActivoRPP\": false,\r\n            \"calificacionPositivoActivoRPP\": false,\r\n            \"rechazoActivoRPP\": false,\r\n            \"fechaReingresoRechazoActivoRPP\": false,\r\n            \"motivoRechazoActivoRPP\": false\r\n        },\r\n        {\r\n            \"diasHabiles\": 5,\r\n            \"titulo\": \"Aviso Vulnerable\",\r\n            \"permitirArchivo\": true,\r\n            \"esParalelo\": true,\r\n            \"campoTrasladoDominio\": false,\r\n            \"campoRegistroPublicoPropiedad\": false,\r\n            \"fechaEnviadoActivoTD\": false,\r\n            \"fechaRevisionActivoTD\": false,\r\n            \"deSalidaActivoTD\": false,\r\n            \"fechaDeSalidaActivoTD\": false,\r\n            \"deRechazoActivoTD\": false,\r\n            \"fechaRechazoActivoTD\": false,\r\n            \"motivoRechazoActivoTD\": false,\r\n            \"fechaRechazoEnviadoActivoTD\": false,\r\n            \"fechaRechazoRevisionActivoTD\": false,\r\n            \"positivoActivoRPP\": false,\r\n            \"fechaPositivoFirmaActivoRPP\": false,\r\n            \"fechaPositivoPagoActivoRPP\": false,\r\n            \"fechaPositivoSelloActivoRPP\": false,\r\n            \"calificacionPositivoActivoRPP\": false,\r\n            \"rechazoActivoRPP\": false,\r\n            \"fechaReingresoRechazoActivoRPP\": false,\r\n            \"motivoRechazoActivoRPP\": false\r\n        },\r\n        {\r\n            \"diasHabiles\": 5,\r\n            \"titulo\": \"Traslado de Dominio\",\r\n            \"permitirArchivo\": true,\r\n            \"esParalelo\": false,\r\n            \"campoTrasladoDominio\": true,\r\n            \"campoRegistroPublicoPropiedad\": false,\r\n            \"fechaEnviadoActivoTD\": true,\r\n            \"fechaRevisionActivoTD\": true,\r\n            \"deSalidaActivoTD\": true,\r\n            \"fechaDeSalidaActivoTD\": true,\r\n            \"deRechazoActivoTD\": true,\r\n            \"fechaRechazoActivoTD\": true,\r\n            \"motivoRechazoActivoTD\": true,\r\n            \"fechaRechazoEnviadoActivoTD\": true,\r\n            \"fechaRechazoRevisionActivoTD\": true,\r\n            \"positivoActivoRPP\": false,\r\n            \"fechaPositivoFirmaActivoRPP\": false,\r\n            \"fechaPositivoPagoActivoRPP\": false,\r\n            \"fechaPositivoSelloActivoRPP\": false,\r\n            \"calificacionPositivoActivoRPP\": false,\r\n            \"rechazoActivoRPP\": false,\r\n            \"fechaReingresoRechazoActivoRPP\": false,\r\n            \"motivoRechazoActivoRPP\": false\r\n        },\r\n        {\r\n            \"diasHabiles\": 3,\r\n            \"titulo\": \"Cierre Escritura\",\r\n            \"permitirArchivo\": true,\r\n            \"esParalelo\": true,\r\n            \"campoTrasladoDominio\": false,\r\n            \"campoRegistroPublicoPropiedad\": false,\r\n            \"fechaEnviadoActivoTD\": false,\r\n            \"fechaRevisionActivoTD\": false,\r\n            \"deSalidaActivoTD\": false,\r\n            \"fechaDeSalidaActivoTD\": false,\r\n            \"deRechazoActivoTD\": false,\r\n            \"fechaRechazoActivoTD\": false,\r\n            \"motivoRechazoActivoTD\": false,\r\n            \"fechaRechazoEnviadoActivoTD\": false,\r\n            \"fechaRechazoRevisionActivoTD\": false,\r\n            \"positivoActivoRPP\": false,\r\n            \"fechaPositivoFirmaActivoRPP\": false,\r\n            \"fechaPositivoPagoActivoRPP\": false,\r\n            \"fechaPositivoSelloActivoRPP\": false,\r\n            \"calificacionPositivoActivoRPP\": false,\r\n            \"rechazoActivoRPP\": false,\r\n            \"fechaReingresoRechazoActivoRPP\": false,\r\n            \"motivoRechazoActivoRPP\": false\r\n        },\r\n        {\r\n            \"diasHabiles\": 5,\r\n            \"titulo\": \"Firma Testimonio Notario\",\r\n            \"permitirArchivo\": true,\r\n            \"esParalelo\": false,\r\n            \"campoTrasladoDominio\": false,\r\n            \"campoRegistroPublicoPropiedad\": false,\r\n            \"fechaEnviadoActivoTD\": false,\r\n            \"fechaRevisionActivoTD\": false,\r\n            \"deSalidaActivoTD\": false,\r\n            \"fechaDeSalidaActivoTD\": false,\r\n            \"deRechazoActivoTD\": false,\r\n            \"fechaRechazoActivoTD\": false,\r\n            \"motivoRechazoActivoTD\": false,\r\n            \"fechaRechazoEnviadoActivoTD\": false,\r\n            \"fechaRechazoRevisionActivoTD\": false,\r\n            \"positivoActivoRPP\": false,\r\n            \"fechaPositivoFirmaActivoRPP\": false,\r\n            \"fechaPositivoPagoActivoRPP\": false,\r\n            \"fechaPositivoSelloActivoRPP\": false,\r\n            \"calificacionPositivoActivoRPP\": false,\r\n            \"rechazoActivoRPP\": false,\r\n            \"fechaReingresoRechazoActivoRPP\": false,\r\n            \"motivoRechazoActivoRPP\": false\r\n        },\r\n        {\r\n            \"diasHabiles\": 8,\r\n            \"titulo\": \"Ingreso al RPP\",\r\n            \"permitirArchivo\": false,\r\n            \"esParalelo\": false,\r\n            \"campoTrasladoDominio\": false,\r\n            \"campoRegistroPublicoPropiedad\": true,\r\n            \"fechaEnviadoActivoTD\": false,\r\n            \"fechaRevisionActivoTD\": false,\r\n            \"deSalidaActivoTD\": false,\r\n            \"fechaDeSalidaActivoTD\": false,\r\n            \"deRechazoActivoTD\": false,\r\n            \"fechaRechazoActivoTD\": false,\r\n            \"motivoRechazoActivoTD\": false,\r\n            \"fechaRechazoEnviadoActivoTD\": false,\r\n            \"fechaRechazoRevisionActivoTD\": false,\r\n            \"positivoActivoRPP\": true,\r\n            \"fechaPositivoFirmaActivoRPP\": true,\r\n            \"fechaPositivoPagoActivoRPP\": true,\r\n            \"fechaPositivoSelloActivoRPP\": true,\r\n            \"calificacionPositivoActivoRPP\": true,\r\n            \"rechazoActivoRPP\": true,\r\n            \"fechaReingresoRechazoActivoRPP\": true,\r\n            \"motivoRechazoActivoRPP\": true\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -202,6 +202,106 @@
 									"key": "id",
 									"value": "1"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tramite y pasos",
+			"item": [
+				{
+					"name": "Obtener tramite por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7028/api/Tramite/GetTramite?id=1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7028",
+							"path": [
+								"api",
+								"Tramite",
+								"GetTramite"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear tramite",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numeroDeEscritura\": \"00001\",\r\n    \"parteA\": \"\",\r\n    \"parteB\": \"\",\r\n    \"usuarioId\": 1,\r\n    \"actoId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7028/api/Tramite/CreateTramite",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7028",
+							"path": [
+								"api",
+								"Tramite",
+								"CreateTramite"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar tramite",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"numeroDeEscritura\": \"00001\",\r\n    \"parteA\": \"Juan\",\r\n    \"parteB\": \"Eduardo\",\r\n    \"usuarioId\": 1,\r\n    \"estatusId\": 2,\r\n    \"PasosTramite\": [\r\n        {\r\n            \"id\": 1,\r\n            \"fechaRealizado\": \"\",\r\n            \"fechaVencimiento\": \"\",\r\n            \"diasRetraso\": 0,\r\n            \"campoTrasladoDominio\": false,\r\n            \"campoRegistroPublicoPropiedad\": false,\r\n            \"fechaEnviadoTD\": \"\",\r\n            \"fechaRevisionTD\": \"\",\r\n            \"fechaDeSalidaTD\": \"\",\r\n            \"deRechazoActivoTD\": \"\",\r\n            \"fechaRechazoTD\": \"\",\r\n            \"motivoReachazoTD\": \"\",\r\n            \"fechaRechazoEnviadoTD\": \"\",\r\n            \"fechaRechazoRevisionTD\": \"\",\r\n            \"positivoActivoRPP\": \"\",\r\n            \"fechaPositivoFirmaRPP\": \"\",\r\n            \"fechaPositivoPagoRPP\": \"\",\r\n            \"fechaPositivoSelloRPP\": \"\",\r\n            \"calificacionPositivoRPP\": \"\",\r\n            \"rechazoActivoRPP\": \"\",\r\n            \"fechaReingresoRechazoRPP\": \"\",\r\n            \"motivoRechazoRPP\": \"\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7028/api/Tramite/UpdateTramite",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7028",
+							"path": [
+								"api",
+								"Tramite",
+								"UpdateTramite"
 							]
 						}
 					},

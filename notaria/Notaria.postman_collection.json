@@ -65,6 +65,27 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Obtener todos los actos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7028/api/Acto/GetActosPasos",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7028",
+							"path": [
+								"api",
+								"Acto",
+								"GetActosPasos"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -242,6 +263,27 @@
 									"key": "id",
 									"value": "1"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener todos los tramites",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7028/api/Tramite/GetTramites",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7028",
+							"path": [
+								"api",
+								"Tramite",
+								"GetTramites"
 							]
 						}
 					},

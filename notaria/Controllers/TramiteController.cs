@@ -18,6 +18,33 @@ namespace notaria.Controllers
             _context = context;
         }
 
+        [HttpGet("/api/tramite/GetTramites")]
+        public IActionResult obtenerTramites()
+        {
+            var message = new { status = "", message = "", data = "" };
+            IActionResult ret = null;
+
+            try
+            {
+
+                var tramites = _context.Tramite
+                    .Include(t => t.ActoEntity)
+                        .ThenInclude(a => a.TipoActoEntity)
+                    .AsNoTracking()
+                    .ToList();
+
+                ret = StatusCode(StatusCodes.Status200OK, tramites);
+
+                return ret;
+            }
+            catch (Exception ex)
+            {
+                message = new { status = "Error", message = ex.Message, data = "" };
+                ret = StatusCode(StatusCodes.Status500InternalServerError, message);
+                return ret;
+            }
+        }
+
         [HttpPost("/api/Tramite/CreateTramite")]
         public IActionResult CrearTramite([FromBody] TramiteActoModel model)
         {

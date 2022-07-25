@@ -18,6 +18,22 @@ namespace notaria.Controllers
             _context = context;
         }
 
+        [HttpGet("/api/Acto/GetActosPasos")]
+        public IActionResult GetActosPasos()
+        {
+            try
+            {
+                var ActosPasosConfig = _context.Acto
+                    .Include(a => a.TipoActoEntity).AsNoTracking().ToList();
+
+                return Ok(ActosPasosConfig);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpGet("/api/Acto/GetActoPasos")]
         public IActionResult GetActoPasos(int id)
         {

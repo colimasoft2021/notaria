@@ -29,5 +29,7 @@ namespace notaria.DataEntities
 
         [ForeignKey("actoId")]
         public virtual ActoEntity ActoEntity { get; set; }
+
+        public HashSet<TramitePasoEntity> PasosTramite { get; set; }
     }
 }

@@ -39,7 +39,7 @@ export default function CatalogoResponsables() {
 
     const showData = () => {
 
-        const URL = "https://localhost:7028/api/Usuario";
+        const URL = "https://localhost:7028/api/Usuario/GetUsers";
         const config = {
             headers: {
                 Authorization: "Bearer " + token

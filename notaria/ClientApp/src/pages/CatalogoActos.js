@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Cookies from "universal-cookie";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import SideBar from "../components/sidebar/SideBar";
@@ -12,8 +14,33 @@ import saveIcon from "../icons/saveIcon.png";
 import deleteIcon from "../icons/deleteIcon.png";
 
 export default function CatalogoActos() {
+    const [actos, getActos] = useState([]);
     const state = useSelector((state) => state);
     let navigate = useNavigate();
+    const cookies = new Cookies();
+    const token = cookies.get("data");
+
+    const showData = () => {
+
+        const URL = "https://localhost:7028/api/Acto/GetActoPasos?id=1";
+        const config = {
+            headers: {
+                Authorization: "Bearer " + token
+            }
+        }
+        axios.get(URL, config)
+            .then((response) => {
+                getActos(response);
+            }).catch((error) => {
+                console.log(error);
+            });
+    };
+
+    useEffect(() => {
+        showData();
+    }, []);
+
+    console.log(actos);
 
     const handleClick = () => {
         navigate("/configuracion");
@@ -52,7 +79,7 @@ export default function CatalogoActos() {
                     </div>
                     <div className={styles.formContainer}>
                         <div className={styles.buttonContainer}>
-                            <Button text="+ Agregar nuevo acto" variant="buttonAddActo" />
+                            <Button text="+ Agregar nuevo acto" variant="buttonAddActo" onClick={handleClick} />
                             <div className={styles.buttonIconContainer}>
                                 <div>
                                     <Button icon={editIcon} variantIcon="backgroundBlue" />

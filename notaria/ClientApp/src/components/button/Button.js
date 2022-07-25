@@ -44,7 +44,7 @@ export default function Button({
                                 src={icon}
                                 alt={`Icono${text ? ` de ${text}` : ""}`}
                             />
-                            {openBar ? <p>{text}</p> : download ? <p>{text}</p> : <></>}
+                                {openBar ? <p>{text}</p> : download ? <p>{text}</p> : <p>{text}</p>}
                         </>
                     )}
                 </div>

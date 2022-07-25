@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import SideBar from "../components/sidebar/SideBar";
 import TopBar from "../components/topbar/TopBar";
 import Input from "../components/input/Input";
+import FormActo from "../components/formActo/FormActo";
 import TitleHeader from "../components/title/TitleHeader";
 import styles from "../scss/pages/CatalogoActos.module.scss";
 import Button from "../components/button/Button";
@@ -91,6 +92,9 @@ export default function CatalogoActos() {
                                     <Button icon={deleteIcon} variantIcon="backgroundBlue" />
                                 </div>
                             </div>
+                        </div>
+                        <div className={styles.containerActos}>
+                            <FormActo />
                         </div>
                     </div>
                 </div>

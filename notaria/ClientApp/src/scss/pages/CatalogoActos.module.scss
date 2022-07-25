@@ -64,11 +64,15 @@
     width: 50%;
 }
 
-.buttonContainer {
+.buttonContainer, .containerActos {
     display: flex;
     justify-content: space-between;
     padding: 0 50px 64.5px 43px;
     width: 100%;
+}
+
+.containerActos {
+    padding-bottom: 132px;
 }
 
 .buttonIconContainer {
